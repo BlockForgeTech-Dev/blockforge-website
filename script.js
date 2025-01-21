@@ -161,6 +161,7 @@ const deployButton = document.getElementById('deploy-button');
 const deploymentMessage = document.getElementById('deployment-message');
 const contractAddress = document.getElementById('contract-address');
 const contractStatus = document.getElementById('contract-status');
+const viewContractLink = document.getElementById('view-contract');
 
 connectWalletButton.addEventListener('click', () => {
   // Simulate wallet connection
@@ -170,28 +171,28 @@ connectWalletButton.addEventListener('click', () => {
 });
 
 deployButton.addEventListener('click', () => {
-  if (!connectWalletButton.disabled) {
-    deploymentMessage.textContent = 'Please connect your wallet first.';
-    return;
-  }
-
-  // Simulate deployment process
-  deployButton.disabled = true;
-  deployButton.textContent = 'Deploying...';
-  deploymentMessage.textContent = 'Deploying contract to the Solana blockchain...';
-
-  // Simulate a delay for deployment
-  setTimeout(() => {
-    deployButton.textContent = 'Deployed';
-    deploymentMessage.textContent = 'Contract deployed successfully!';
-    contractAddress.textContent = '0x1234...5678'; // Replace with a placeholder address
-    contractStatus.textContent = 'Active';
-    contractStatus.classList.remove('text-red-500');
-    contractStatus.classList.add('text-green-500');
-
-    // Redirect to contract management page after a short delay
+    if (!connectWalletButton.disabled) {
+      deploymentMessage.textContent = 'Please connect your wallet first.';
+      return;
+    }
+  
+    // Simulate deployment process
+    deployButton.disabled = true;
+    deployButton.textContent = 'Deploying...';
+    deploymentMessage.textContent = 'Deploying contract to the Solana blockchain...';
+  
+    // Simulate a delay for deployment
     setTimeout(() => {
-      window.location.href = 'contract-management.html'; 
-    }, 2000);
-  }, 3000); // 3 seconds delay for deployment simulation
-});
+      deployButton.remove();
+      deploymentMessage.textContent = 'Contract deployed successfully!';
+      contractAddress.textContent = '0x5A7d3fA3d9Ca7bCd8537F2d25fD2D7245977f894'; // Replace with a placeholder address
+      contractStatus.textContent = 'Active';
+      contractStatus.classList.remove('text-red-500');
+      contractStatus.classList.add('text-green-500');
+      management.classList.remove('hidden')
+  
+      // Show the "View Contract Dashboard" link
+      viewContractLink.classList.remove('hidden');
+      viewContractLink.href = 'contract-management.html'; // Update with the correct path if necessary
+    }, 3000); // 3 seconds delay for deployment simulation
+  });

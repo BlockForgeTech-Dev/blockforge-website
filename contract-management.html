@@ -1,77 +1,291 @@
-// Dynamic text animation (for hero section - if needed)
-window.addEventListener('load', () => {
-  const dynamicText = document.querySelector('.dynamic-text');
-  if (dynamicText) {
-    setTimeout(() => {
-      dynamicText.classList.add('visible');
-    }, 300);
-  }
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Contract Platform | BlockForge Technologies</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+  <header class="bg-black py-6">
+    <div class="container mx-auto flex justify-between items-center px-8">
+      <a href="/" class="text-2xl font-bold text-white flex items-center">
+        <img src="images/logo.svg" alt="BlockForge Logo" class="h-12 mr-3">
+        BlockForge
+      </a>
+      <nav>
+        <ul class="flex space-x-8">
+          <li><a href="/#namegenai" class="nav-link text-white hover:text-blue-300">NameGenAI</a></li>
+          <li><a href="/#smart-contract-platform" class="nav-link text-white hover:text-blue-300 active">Smart Contract Platform</a></li>
+          <li><a href="newsletter.html" class="nav-link text-white hover:text-blue-300">Newsletter</a></li>
+          <li><a href="about.html" class="nav-link text-white hover:text-blue-300">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-// Dynamic navigation highlighting
-window.addEventListener('load', () => {
-  const navLinks = document.querySelectorAll('.nav-link');
-  const currentPath = window.location.pathname;
+  <main>
+    <section class="bg-gradient py-32 relative overflow-hidden" id="hero">
+      <div class="container mx-auto px-8 text-center relative z-10">
+        <h1 class="text-5xl font-bold mb-6 animate-float">AI-Powered Smart Contract Platform for <span class="solana-highlight">Solana</span></h1>
+        <p class="text-xl mb-12 dynamic-text">Simplifying blockchain development with intelligent, user-friendly tools</p>
+        <a href="newsletter.html" class="bg-white text-black py-4 px-8 rounded-full font-semibold hover:bg-blue-300">Get Early Access</a>
+      </div>
+    </section>
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active');
-    }
-  });
-});
+    <section id="workflow" class="py-32">
+      <div class="container mx-auto px-8">
+        <h2 class="text-4xl font-bold text-center mb-16">Core Platform Workflow</h2>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div class="bg-gray-800 p-8 rounded-lg card">
+            <div class="mb-4">
+              <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">1. Template Selection</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+              <li>Token Contract</li>
+              <li>NFT Contract</li>
+              <li>DeFi Contract</li>
+              <li>DAO Governance</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-8 rounded-lg card">
+            <div class="mb-4">
+              <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">2. AI-Assisted Configuration</h3>
+            <p>Intelligent parameter validation with real-time AI suggestions and warnings.</p>
+            <p class="mt-4 italic text-gray-400">Example: "Token supply is very high. Are you sure?"</p>
+          </div>
+          <div class="bg-gray-800 p-8 rounded-lg card">
+            <div class="mb-4">
+              <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">3. Security Audit</h3>
+            <p>AI-powered vulnerability scanning for:</p>
+            <ul class="list-disc list-inside space-y-2 text-gray-300 mt-4">
+              <li>Reentrancy attack detection</li>
+              <li>Overflow issue identification</li>
+              <li>Comprehensive security risk assessment</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-8 rounded-lg card">
+            <div class="mb-4">
+              <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">4. Blockchain Deployment</h3>
+            <p>Deploy directly to Solana RPC:</p>
+            <ul class="list-disc list-inside space-y-2 text-gray-300 mt-4">
+              <li>Wallet authorization</li>
+              <li>Instant blockchain deployment</li>
+              <li>Low-cost transaction fees</li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-8 rounded-lg card">
+            <div class="mb-4">
+              <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">5. Contract Management</h3>
+            <p>Post-deployment monitoring dashboard:</p>
+            <ul class="list-disc list-inside space-y-2 text-gray-300 mt-4">
+              <li>Real-time contract interactions</li>
+              <li>Transaction volume tracking</li>
+              <li>Performance analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// Placeholder Data for Contract Management
-const contractAddress = document.getElementById('contract-address');
-const contractStatus = document.getElementById('contract-status');
+    <section id="demo" class="py-16">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Interactive Demo</h2>
+            <div class="bg-gray-800 rounded-lg p-8 shadow-lg">
+    
+                <!-- Disclaimer -->
+                <div class="bg-yellow-200 text-yellow-800 p-4 rounded mb-8">
+                    <p class="text-sm">
+                    Disclaimer: This is a live demo for demonstration purposes. The full version of the BlockForge Smart Contract Platform will be available in Q2 2025.
+                    </p>
+                </div>
+    
+                <!-- Step 1: Template Selection -->
+                <div id="template-selection" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">1. Select a Template</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="token">
+                            <h4 class="text-xl font-semibold mb-2">Token Contract</h4>
+                            <p class="text-gray-300">Create a fungible token</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="nft">
+                            <h4 class="text-xl font-semibold mb-2">NFT Contract</h4>
+                            <p class="text-gray-300">Create a non-fungible token</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="defi">
+                            <h4 class="text-xl font-semibold mb-2">DeFi Contract</h4>
+                            <p class="text-gray-300">Build a DeFi protocol</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="dao">
+                            <h4 class="text-xl font-semibold mb-2">DAO Contract</h4>
+                            <p class="text-gray-300">Create a decentralized autonomous organization</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Step 2: Configuration (Placeholder) -->
+                <div id="configuration" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">2. Configure Your Contract</h3>
+                    <div class="mb-4">
+                        <label for="token-name" class="block mb-2 text-gray-300">Token Name</label>
+                        <input type="text" id="token-name" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="token-symbol" class="block mb-2 text-gray-300">Token Symbol</label>
+                        <input type="text" id="token-symbol" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token symbol">
+                      </div>
+                    <div class="mb-4">
+                        <label for="token-supply" class="block mb-2 text-gray-300">Token Supply</label>
+                        <input type="number" id="token-supply" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token supply">
+                        <p class="text-sm text-yellow-400 mt-1 italic"></p>
+                    </div>
+                </div>
+    
+                <!-- Step 3: Security Audit (Placeholder) -->
+                <div id="security-audit" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">3. Security Audit</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-4">
+                        <div id="audit-progress" class="bg-blue-500 h-4 rounded-full" style="width: 0%"></div>
+                    </div>
+                    <p id="audit-message" class="mt-2 text-gray-300">Scanning for vulnerabilities...</p>
+                  </div>
+            
+                  <!-- Step 4: Deployment (Placeholder) -->
+                  <div id="deployment" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">4. Deploy Your Contract</h3>
+                    <button id="connect-wallet" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 mr-4">Connect Wallet</button>
+                    <button id="deploy-button" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-200">Deploy</button>
+                    <p id="deployment-message" class="mt-4 text-gray-300"></p>
+                  </div>
+            
+                  <!-- Step 5: Management (Placeholder) -->
+                  <div id="management" class="hidden">
+                    <h3 class="text-2xl font-bold mb-4">5. Manage Your Contract</h3>
+                    <p class="text-gray-300">Contract Address: <span id="contract-address" class="font-mono">Not Available</span></p>
+                    <p class="text-gray-300">Status: <span id="contract-status" class="text-red-500">Not Deployed</span></p>
+                    <a id="view-contract" href="#" target="_blank" class="inline-block mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200">
+                        View Contract Dashboard
+                    </a>
+                  </div>
+            </div>
+        </div>
+    </section>
 
-// Update these with simulated data when the contract is "deployed"
-contractAddress.textContent = "0x5A7d3fA3d9Ca7bCd8537F2d25fD2D7245977f894"; // Example placeholder
-contractStatus.textContent = "Active";
-contractStatus.classList.add('text-green-500');
+    <section id="solana-integration" class="py-32 bg-gray-800">
+      <div class="container mx-auto px-8">
+        <h2 class="text-4xl font-bold text-center mb-16 solana-highlight">Solana Integration Advantages</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-700 p-8 rounded-lg card">
+            <div class="mb-4">
+                <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">High Throughput</h3>
+            <p>Solana handles thousands of transactions per second, ensuring smooth contract deployment and execution.</p>
+          </div>
+          <div class="bg-gray-700 p-8 rounded-lg card">
+            <div class="mb-4">
+                <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Low Fees</h3>
+            <p>Cost-effective deployment compared to other blockchain platforms, making development more accessible.</p>
+          </div>
+          <div class="bg-gray-700 p-8 rounded-lg card">
+            <div class="mb-4">
+                <svg class="h-10 w-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Rust-Based Programs</h3>
+            <p>Leverage Solana's native program architecture with Rust-based BPF (Berkley Packet Filter) programs.</p>
+          </div>
+        </div>
+        <div class="mt-16 text-center">
+          <h3 class="text-2xl font-bold mb-6">Key Solana Tools</h3>
+          <div class="flex justify-center space-x-8 text-gray-300">
+            <span>solana-py</span>
+            <span>solana-cli</span>
+            <span>Anchor Framework</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// Chart.js for Transaction Volume Tracking
-const transactionCanvas = document.getElementById('transactionChart');
-if (transactionCanvas) {
-  const transactionChart = new Chart(transactionCanvas, {
-    type: 'line',
-    data: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Transaction Volume',
-        data: [120, 150, 80, 200, 160, 250, 300], // Placeholder data
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 2,
-        tension: 0.4
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      },
-      plugins: {
-        legend: {
-          labels: {
-            color: 'white'
-          }
-        }
-      },
-      layout: {
-        padding: {
-          left: 10,
-          right: 10,
-          top: 10,
-          bottom: 10
-        }
-      }
-    }
-  });
-}
+    <section id="future" class="bg-gradient py-32">
+      <div class="container mx-auto px-8 text-center">
+        <h2 class="text-4xl font-bold mb-6">The Future of Blockchain Development</h2>
+        <div class="max-w-3xl mx-auto">
+          <p class="text-xl mb-12">We're building more than a platform - we're creating an ecosystem for blockchain innovation</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class = "card bg-gray-800 p-8 rounded-lg">
+              <h3 class="text-2xl font-semibold mb-4">AI Optimization</h3>
+              <p>Intelligent program optimization for maximum efficiency</p>
+            </div>
+            <div class = "card bg-gray-800 p-8 rounded-lg">
+              <h3 class="text-2xl font-semibold mb-4">Cross-Chain Deploy</h3>
+              <p>Unified interface for multi-blockchain deployment</p>
+            </div>
+            <div class = "card bg-gray-800 p-8 rounded-lg">
+              <h3 class="text-2xl font-semibold mb-4">Education Tools</h3>
+              <p>Interactive guides for blockchain development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// Update the following metrics with simulated data
-document.getElementById('total-transactions').textContent = '1,234';
-document.getElementById('avg-gas-price').textContent = '50 Gwei';
-document.getElementById('unique-interactors').textContent = '456';
+    <section id="launch" class="py-32">
+      <div class="container mx-auto px-8 text-center">
+        <h2 class="text-4xl font-bold mb-6">Coming in Q2 2025</h2>
+        <p class="text-xl mb-12">Be the first to revolutionize blockchain development</p>
+        <a href="newsletter.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+          Join Waitlist
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black py-12">
+    <div class="container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">BlockForge</h3>
+          <p>Pioneering the future of blockchain and AI technology.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Products</h3>
+          <ul class="space-y-2">
+            <li><a href="/#namegenai" class="hover:text-blue-300">NameGenAI</a></li>
+            <li><a href="/#smart-contract-platform" class="hover:text-blue-300">Smart Contract Platform</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Connect</h3>
+          <ul class="space-y-2">
+            <li><a href="https://twitter.com/blockforge_tech" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">BlockForge Twitter</a></li>
+            <li><a href="https://t.me/BlockForge" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">Telegram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="privacy.html" class="hover:text-blue-300">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-blue-300">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-center">© 2025 BlockForge Technologies. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
