@@ -29,6 +29,7 @@ const securityAudit = document.getElementById('security-audit');
 const deployment = document.getElementById('deployment');
 const management = document.getElementById('management');
 const auditProgress = document.getElementById('audit-progress');
+const auditMessage = document.getElementById('audit-message');
 
 // --- Enhanced Functionality ---
 
@@ -139,12 +140,13 @@ configuration.addEventListener('input', (event) => {
 // 3. Security Audit (Placeholder Animation)
 securityAudit.addEventListener('click', () => {
   auditProgress.style.width = '0%'; // Reset
+  auditMessage.textContent = "Scanning for vulnerabilities..."
   let width = 0;
   const interval = setInterval(() => {
     if (width >= 100) {
       clearInterval(interval);
       // Display mock security issues (placeholder)
-      console.log('Security Audit Complete. Mock issues found.');
+      auditMessage.textContent = "Security Audit Complete. No issues found.";
       auditProgress.style.backgroundColor = 'green';
     } else {
       width += 10;
@@ -154,12 +156,42 @@ securityAudit.addEventListener('click', () => {
 });
 
 // 4. Deployment (Placeholder)
-deployment.addEventListener('click', (event) => {
-  if (event.target.tagName === 'BUTTON') {
-    console.log(event.target.textContent, 'clicked'); // Log button clicks
-    // Simulate wallet connection or deployment
-    if (event.target.textContent === 'Deploy'){
-        alert("Contract Deployed")
-    }
+const connectWalletButton = document.getElementById('connect-wallet');
+const deployButton = document.getElementById('deploy-button');
+const deploymentMessage = document.getElementById('deployment-message');
+const contractAddress = document.getElementById('contract-address');
+const contractStatus = document.getElementById('contract-status');
+
+connectWalletButton.addEventListener('click', () => {
+  // Simulate wallet connection
+  connectWalletButton.textContent = 'Wallet Connected';
+  connectWalletButton.disabled = true;
+  deploymentMessage.textContent = 'Wallet connected successfully. Ready to deploy.';
+});
+
+deployButton.addEventListener('click', () => {
+  if (!connectWalletButton.disabled) {
+    deploymentMessage.textContent = 'Please connect your wallet first.';
+    return;
   }
+
+  // Simulate deployment process
+  deployButton.disabled = true;
+  deployButton.textContent = 'Deploying...';
+  deploymentMessage.textContent = 'Deploying contract to the Solana blockchain...';
+
+  // Simulate a delay for deployment
+  setTimeout(() => {
+    deployButton.textContent = 'Deployed';
+    deploymentMessage.textContent = 'Contract deployed successfully!';
+    contractAddress.textContent = '0x1234...5678'; // Replace with a placeholder address
+    contractStatus.textContent = 'Active';
+    contractStatus.classList.remove('text-red-500');
+    contractStatus.classList.add('text-green-500');
+
+    // Redirect to contract management page after a short delay
+    setTimeout(() => {
+      window.location.href = 'contract-management.html'; 
+    }, 2000);
+  }, 3000); // 3 seconds delay for deployment simulation
 });
