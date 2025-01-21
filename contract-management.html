@@ -34,7 +34,7 @@
         <h1 class="text-4xl font-bold text-center mb-8">Contract Management Dashboard</h1>
         <div class="bg-gray-800 rounded-lg p-8 shadow-lg">
           <h2 class="text-2xl font-bold mb-4">Contract Details</h2>
-          <p class="text-gray-300">Contract Address: <span id="contract-address" class="font-mono text-green-400">0x5A7d3fA3d9Ca7bCd8537F2d25fD2D7245977f894</span> (Demo)</p>
+          <p class="text-gray-300">Contract Address: <span id="contract-address" class="font-mono text-green-400"></span> (Demo)</p>
           <p class="text-gray-300">Status: <span id="contract-status" class="text-green-500">Active</span> (Demo)</p>
           <p class="text-gray-300 mt-4 italic">Note: This is a demo. The data displayed is simulated and not connected to a live blockchain.</p>
 
@@ -42,38 +42,7 @@
             <h3 class="text-2xl font-bold mb-4">Real-time Contract Interactions</h3>
             <div class="bg-gray-700 rounded-lg p-4">
               <ul id="interactions-list" class="text-gray-300 space-y-2">
-                <li>
-                    <div class="bg-gray-800 p-4 rounded-lg mb-2 flex items-center justify-between">
-                      <div>
-                        <p class="font-semibold">Interaction: <span class="font-mono">Transfer</span></p>
-                        <p class="text-sm">From: <span class="font-mono">0xabcd...1234</span></p>
-                        <p class="text-sm">To: <span class="font-mono">0x5678...90ab</span></p>
-                        <p class="text-sm">Amount: <span class="font-mono">100 Tokens</span></p>
-                      </div>
-                      <span class="text-xs text-gray-500">Just now</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="bg-gray-800 p-4 rounded-lg mb-2 flex items-center justify-between">
-                      <div>
-                        <p class="font-semibold">Interaction: <span class="font-mono">Mint</span></p>
-                        <p class="text-sm">To: <span class="font-mono">0x9876...5432</span></p>
-                        <p class="text-sm">Amount: <span class="font-mono">50 Tokens</span></p>
-                      </div>
-                      <span class="text-xs text-gray-500">5 minutes ago</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
-                      <div>
-                        <p class="font-semibold">Interaction: <span class="font-mono">Transfer</span></p>
-                        <p class="text-sm">From: <span class="font-mono">0x4567...890a</span></p>
-                        <p class="text-sm">To: <span class="font-mono">0xbcde...f012</span></p>
-                        <p class="text-sm">Amount: <span class="font-mono">25 Tokens</span></p>
-                      </div>
-                      <span class="text-xs text-gray-500">12 minutes ago</span>
-                    </div>
-                  </li>
+                <!-- Dynamic contract interactions will be added here -->
               </ul>
             </div>
           </div>
@@ -90,24 +59,24 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div class="bg-gray-700 p-4 rounded-lg">
                 <p class="text-gray-300">Total Transactions</p>
-                <p id="total-transactions" class="text-3xl font-bold text-blue-400">1,234</p>
+                <p id="total-transactions" class="text-3xl font-bold text-blue-400"></p>
               </div>
               <div class="bg-gray-700 p-4 rounded-lg">
                 <p class="text-gray-300">Average Gas Price</p>
-                <p id="avg-gas-price" class="text-3xl font-bold text-blue-400">50 Gwei</p>
+                <p id="avg-gas-price" class="text-3xl font-bold text-blue-400"></p>
               </div>
               <div class="bg-gray-700 p-4 rounded-lg">
                 <p class="text-gray-300">Unique Interactors</p>
-                <p id="unique-interactors" class="text-3xl font-bold text-blue-400">456</p>
+                <p id="unique-interactors" class="text-3xl font-bold text-blue-400"></p>
               </div>
             </div>
           </div>
+
           <div class="mt-8">
             <h3 class="text-2xl font-bold mb-4">Live Bribe Updates (Demo)</h3>
             <div id="bribe-updates" class="bg-gray-700 rounded-lg p-4">
-                <!-- Bribe update items will be added here -->
             </div>
-        </div>
+          </div>
         </div>
       </div>
     </section>

@@ -102,86 +102,86 @@
     </section>
 
     <section id="demo" class="py-16">
-      <div class="container mx-auto px-8">
-          <h2 class="text-4xl font-bold text-center mb-12">Interactive Demo</h2>
-          <div class="bg-gray-800 rounded-lg p-8 shadow-lg">
-
-              <!-- Disclaimer -->
-              <div class="bg-yellow-200 text-yellow-800 p-4 rounded mb-8">
-                  <p class="text-sm">
-                  Disclaimer: This is a live demo for demonstration purposes. The full version of the BlockForge Smart Contract Platform will be available in Q2 2025.
-                  </p>
-              </div>
-
-              <!-- Step 1: Template Selection -->
-              <div id="template-selection" class="mb-8">
-                  <h3 class="text-2xl font-bold mb-4">1. Select a Template</h3>
-                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="token">
-                          <h4 class="text-xl font-semibold mb-2">Token Contract</h4>
-                          <p class="text-gray-300">Create a fungible token</p>
-                      </div>
-                      <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="nft">
-                          <h4 class="text-xl font-semibold mb-2">NFT Contract</h4>
-                          <p class="text-gray-300">Create a non-fungible token</p>
-                      </div>
-                      <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="defi">
-                          <h4 class="text-xl font-semibold mb-2">DeFi Contract</h4>
-                          <p class="text-gray-300">Build a DeFi protocol</p>
-                      </div>
-                      <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="dao">
-                          <h4 class="text-xl font-semibold mb-2">DAO Contract</h4>
-                          <p class="text-gray-300">Create a decentralized autonomous organization</p>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- Step 2: Configuration (Placeholder) -->
-              <div id="configuration" class="mb-8">
-                  <h3 class="text-2xl font-bold mb-4">2. Configure Your Contract</h3>
-                  <div class="mb-4">
-                      <label for="token-name" class="block mb-2 text-gray-300">Token Name</label>
-                      <input type="text" id="token-name" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token name">
-                  </div>
-                  <div class="mb-4">
-                      <label for="token-symbol" class="block mb-2 text-gray-300">Token Symbol</label>
-                      <input type="text" id="token-symbol" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token symbol">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Interactive Demo</h2>
+            <div class="bg-gray-800 rounded-lg p-8 shadow-lg">
+    
+                <!-- Disclaimer -->
+                <div class="bg-yellow-200 text-yellow-800 p-4 rounded mb-8">
+                    <p class="text-sm">
+                    Disclaimer: This is a live demo for demonstration purposes. The full version of the BlockForge Smart Contract Platform will be available in Q2 2025.
+                    </p>
+                </div>
+    
+                <!-- Step 1: Template Selection -->
+                <div id="template-selection" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">1. Select a Template</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="token">
+                            <h4 class="text-xl font-semibold mb-2">Token Contract</h4>
+                            <p class="text-gray-300">Create a fungible token</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="nft">
+                            <h4 class="text-xl font-semibold mb-2">NFT Contract</h4>
+                            <p class="text-gray-300">Create a non-fungible token</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="defi">
+                            <h4 class="text-xl font-semibold mb-2">DeFi Contract</h4>
+                            <p class="text-gray-300">Build a DeFi protocol</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg cursor-pointer hover:bg-gray-600 transition duration-200" data-template="dao">
+                            <h4 class="text-xl font-semibold mb-2">DAO Contract</h4>
+                            <p class="text-gray-300">Create a decentralized autonomous organization</p>
+                        </div>
                     </div>
-                  <div class="mb-4">
-                      <label for="token-supply" class="block mb-2 text-gray-300">Token Supply</label>
-                      <input type="number" id="token-supply" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token supply">
-                      <p class="text-sm text-yellow-400 mt-1 italic"></p>
+                </div>
+    
+                <!-- Step 2: Configuration (Placeholder) -->
+                <div id="configuration" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">2. Configure Your Contract</h3>
+                    <div class="mb-4">
+                        <label for="token-name" class="block mb-2 text-gray-300">Token Name</label>
+                        <input type="text" id="token-name" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="token-symbol" class="block mb-2 text-gray-300">Token Symbol</label>
+                        <input type="text" id="token-symbol" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token symbol">
+                      </div>
+                    <div class="mb-4">
+                        <label for="token-supply" class="block mb-2 text-gray-300">Token Supply</label>
+                        <input type="number" id="token-supply" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg" placeholder="Enter token supply">
+                        <p class="text-sm text-yellow-400 mt-1 italic"></p>
+                    </div>
+                </div>
+    
+                <!-- Step 3: Security Audit (Placeholder) -->
+                <div id="security-audit" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">3. Security Audit</h3>
+                    <div class="w-full bg-gray-700 rounded-full h-4">
+                        <div id="audit-progress" class="bg-blue-500 h-4 rounded-full" style="width: 0%"></div>
+                    </div>
+                    <p id="audit-message" class="mt-2 text-gray-300">Scanning for vulnerabilities...</p>
                   </div>
-              </div>
-
-              <!-- Step 3: Security Audit (Placeholder) -->
-              <div id="security-audit" class="mb-8">
-                  <h3 class="text-2xl font-bold mb-4">3. Security Audit</h3>
-                  <div class="w-full bg-gray-700 rounded-full h-4">
-                      <div id="audit-progress" class="bg-blue-500 h-4 rounded-full" style="width: 0%"></div>
+            
+                  <!-- Step 4: Deployment (Placeholder) -->
+                  <div id="deployment" class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">4. Deploy Your Contract</h3>
+                    <button id="connect-wallet" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 mr-4">Connect Wallet</button>
+                    <button id="deploy-button" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-200">Deploy</button>
+                    <p id="deployment-message" class="mt-4 text-gray-300"></p>
                   </div>
-                  <p id="audit-message" class="mt-2 text-gray-300">Scanning for vulnerabilities...</p>
-                </div>
-          
-                <!-- Step 4: Deployment (Placeholder) -->
-                <div id="deployment" class="mb-8">
-                  <h3 class="text-2xl font-bold mb-4">4. Deploy Your Contract</h3>
-                  <button id="connect-wallet" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 mr-4">Connect Wallet</button>
-                  <button id="deploy-button" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-200">Deploy</button>
-                  <p id="deployment-message" class="mt-4 text-gray-300"></p>
-                </div>
-          
-                <!-- Step 5: Management (Placeholder) -->
-                <div id="management" class="hidden">
-                  <h3 class="text-2xl font-bold mb-4">5. Manage Your Contract</h3>
-                  <p class="text-gray-300">Contract Address: <span id="contract-address" class="font-mono">Not Available</span></p>
-                  <p class="text-gray-300">Status: <span id="contract-status" class="text-red-500">Not Deployed</span></p>
-                  <a id="view-contract" href="#" target="_blank" class="inline-block mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200">
-                      View Contract Dashboard
-                  </a>
-                </div>
-          </div>
-      </div>
+            
+                  <!-- Step 5: Management (Placeholder) -->
+                  <div id="management" class="hidden">
+                    <h3 class="text-2xl font-bold mb-4">5. Manage Your Contract</h3>
+                    <p class="text-gray-300">Contract Address: <span id="contract-address" class="font-mono">Not Available</span></p>
+                    <p class="text-gray-300">Status: <span id="contract-status" class="text-red-500">Not Deployed</span></p>
+                    <a id="view-contract" href="#" target="_blank" class="inline-block mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200">
+                        View Contract Dashboard
+                    </a>
+                  </div>
+            </div>
+        </div>
     </section>
 
     <section id="solana-integration" class="py-32 bg-gray-800">
