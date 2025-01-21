@@ -60,7 +60,7 @@
                 <label for="prefix" class="block text-sm font-medium mb-2">Wallet Prefix</label>
                 <input type="text" id="prefix" maxlength="6" placeholder="Enter up to 6 characters"
                   class="w-full bg-gray-700 text-white py-4 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  pattern="[A-Za-z0-9]{1,6}">
+                  pattern="[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{1,6}">
                 <p id="validation-message" class="text-sm text-gray-400 mt-2">Letters and numbers only (A-Z, a-z, 0-9)</p>
               </div>
               <button id="preview"
@@ -224,50 +224,52 @@
     const resultDiv = document.getElementById('result');
     const previewAddress = document.getElementById('preview-address');
     const validationMessage = document.getElementById('validation-message');
-
+  
+    // Updated Base58 characters excluding 0, O, I, and l
     const base58Chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
-
+  
     const validatePrefix = (prefix) => {
-      const validRegex = /^[A-Za-z0-9]{1,6}$/;
+      // Updated regex to only allow valid Base58 characters
+      const validRegex = /^[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{1,6}$/;
       return validRegex.test(prefix);
     };
-
+  
     const updateValidationMessage = (prefix) => {
       const isValid = validatePrefix(prefix);
       const length = prefix.length;
-      let message = 'Enter 1-6 characters (A-Z, a-z, 0-9)';
+      let message = 'Enter 1-6 valid Base58 characters';
       let className = 'text-sm text-gray-400 mt-2';
-
+  
       if (length > 0) {
-        message = isValid ? `Valid prefix! (${length}/6 characters)` : 'Only letters and numbers allowed';
+        message = isValid ? `Valid prefix! (${length}/6 characters)` : 'Invalid characters used';
         className = `text-sm text-${isValid ? 'green' : 'red'}-400 mt-2`;
       }
-
+  
       validationMessage.textContent = message;
       validationMessage.className = className;
       previewButton.disabled = !isValid;
     };
-
+  
     prefixInput.addEventListener('input', (e) => {
       const prefix = e.target.value.trim();
       updateValidationMessage(prefix);
     });
-
+  
     previewButton.addEventListener('click', () => {
       const prefix = prefixInput.value.trim();
       if (validatePrefix(prefix)) {
         let address = prefix;
         const remainingLength = 44 - prefix.length;
-
+  
         for (let i = 0; i < remainingLength; i++) {
           address += base58Chars.charAt(Math.floor(Math.random() * base58Chars.length));
         }
-
+  
         resultDiv.classList.remove('hidden');
         previewAddress.textContent = address;
       }
     });
-
+  
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -277,5 +279,6 @@
       });
     });
   </script>
+  
 </body>
 </html>
