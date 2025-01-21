@@ -41,9 +41,110 @@
   <main>
     <section id="hero" class="bg-gradient py-32">
       <div class="container mx-auto px-8">
-        <h1 class="text-5xl font-bold mb-6">Pioneering Blockchain and AI Innovation</h1>
-        <p class="text-xl mb-12">Empowering developers and businesses with cutting-edge tools and platforms.</p>
+        <h1 class="text-5xl font-bold mb-6" id="hero-heading">Pioneering Blockchain and AI Innovation</h1>
+        <p class="text-xl mb-12" id="hero-text">Empowering developers and businesses with cutting-edge tools and platforms.</p>
         <a href="#namegenai" class="bg-white text-black py-4 px-8 rounded-full font-semibold hover:bg-blue-300">Get Started</a>
+      </div>
+    </section>
+
+    <section id="namegenai" class="py-32">
+      <div class="container mx-auto px-8">
+        <h2 class="text-4xl font-bold mb-12">NameGenAI - Wallet Generator</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <div class="bg-gray-800 rounded-lg p-8 mb-8">
+              <h3 class="text-2xl font-bold mb-6">Preview Your Custom Wallet</h3>
+              <p class="text-lg mb-6">Enter up to 6 characters to see how your personalized wallet address could look.</p>
+              <div class="mb-6">
+                <label for="prefix" class="block text-sm font-medium mb-2">Wallet Prefix</label>
+                <input type="text" 
+                       id="prefix" 
+                       maxlength="6" 
+                       placeholder="Enter up to 6 characters" 
+                       class="w-full bg-gray-700 text-white py-4 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       pattern="[A-Za-z0-9]{1,6}">
+                <p id="validation-message" class="text-sm text-gray-400 mt-2">Letters and numbers only (A-Z, a-z, 0-9)</p>
+              </div>
+              <button id="preview" 
+                      class="w-full bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 mb-6 disabled:opacity-50 disabled:cursor-not-allowed">
+                Preview Address
+              </button>
+              <div id="result" class="bg-gray-700 rounded-lg p-4 hidden">
+                <p class="text-sm text-gray-300 mb-2">Sample Wallet Address:</p>
+                <p class="font-mono break-all text-lg"></p>
+              </div>
+            </div>
+            <div class="bg-blue-900 rounded-lg p-8">
+              <h3 class="text-xl font-bold mb-4">Ready to Generate Your Wallet?</h3>
+              <p class="mb-6">For secure wallet generation with your custom prefix, use our official Telegram bot. Our bot provides:</p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Secure, on-demand generation</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Private key protection</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>24/7 availability</span>
+                </li>
+              </ul>
+              <a href="https://t.me/namegenai_Bot" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="block text-center bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
+                Open Telegram Bot
+              </a>
+            </div>
+          </div>
+          <div class="space-y-8">
+            <div class="bg-gray-800 rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6">How It Works</h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                    <span class="text-xl font-bold">1</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold mb-2">Choose Your Prefix</h4>
+                    <p class="text-gray-300">Enter up to 6 characters that you want your wallet address to start with.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                    <span class="text-xl font-bold">2</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold mb-2">Preview Format</h4>
+                    <p class="text-gray-300">See how your customized wallet address could look.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                    <span class="text-xl font-bold">3</span>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold mb-2">Generate Securely</h4>
+                    <p class="text-gray-300">Use our Telegram bot for secure, actual wallet generation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-8">
+              <h3 class="text-xl font-bold mb-4">Security Notice</h3>
+              <p class="text-gray-300 mb-4">This preview tool only shows sample addresses. For actual wallet generation with private keys, please use our secure Telegram bot.</p>
+              <p class="text-gray-300">Never share your private keys or seed phrases with anyone.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -168,63 +269,63 @@
 
   <script>
     const prefixInput = document.getElementById('prefix');
-    const previewButton = document.getElementById('preview');
-    const resultDiv = document.getElementById('result');
-    const validationMessage = document.getElementById('validation-message');
+    const previewButton = document.getElementById
+resultDiv = document.getElementById('result');
+const validationMessage = document.getElementById('validation-message');
 
-    const base58Chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+const base58Chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 
-    const validatePrefix = (prefix) => {
-      const validRegex = /^[A-Za-z0-9]{1,6}$/;
-      return validRegex.test(prefix);
-    };
+const validatePrefix = (prefix) => {
+  const validRegex = /^[A-Za-z0-9]{1,6}$/;
+  return validRegex.test(prefix);
+};
 
-    const updateValidationMessage = (prefix) => {
-      const isValid = validatePrefix(prefix);
-      const length = prefix.length;
-      
-      if (length === 0) {
-        validationMessage.textContent = 'Enter 1-6 characters (A-Z, a-z, 0-9)';
-        validationMessage.className = 'text-sm text-gray-400 mt-2';
-      } else if (!isValid) {
-        validationMessage.textContent = 'Only letters and numbers allowed';
-        validationMessage.className = 'text-sm text-red-400 mt-2';
-      } else {
-        validationMessage.textContent = `Valid prefix! (${length}/6 characters)`;
-        validationMessage.className = 'text-sm text-green-400 mt-2';
-      }
-      
-      previewButton.disabled = !isValid;
-    };
+const updateValidationMessage = (prefix) => {
+  const isValid = validatePrefix(prefix);
+  const length = prefix.length;
+  
+  if (length === 0) {
+    validationMessage.textContent = 'Enter 1-6 characters (A-Z, a-z, 0-9)';
+    validationMessage.className = 'text-sm text-gray-400 mt-2';
+  } else if (!isValid) {
+    validationMessage.textContent = 'Only letters and numbers allowed';
+    validationMessage.className = 'text-sm text-red-400 mt-2';
+  } else {
+    validationMessage.textContent = `Valid prefix! (${length}/6 characters)`;
+    validationMessage.className = 'text-sm text-green-400 mt-2';
+  }
+  
+  previewButton.disabled = !isValid;
+};
 
-    prefixInput.addEventListener('input', (e) => {
-      const prefix = e.target.value.trim();
-      updateValidationMessage(prefix);
+prefixInput.addEventListener('input', (e) => {
+  const prefix = e.target.value.trim();
+  updateValidationMessage(prefix);
+});
+
+previewButton.addEventListener('click', () => {
+  const prefix = prefixInput.value.trim();
+  if (validatePrefix(prefix)) {
+    let address = prefix;
+    const remainingLength = 43 - prefix.length;
+    
+    for (let i = 0; i < remainingLength; i++) {
+      address += base58Chars.charAt(Math.floor(Math.random() * base58Chars.length));
+    }
+
+    resultDiv.classList.remove('hidden');
+    resultDiv.querySelector('p:last-child').textContent = address;
+  }
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
     });
-
-    previewButton.addEventListener('click', () => {
-      const prefix = prefixInput.value.trim();
-      if (validatePrefix(prefix)) {
-        let address = prefix;
-        const remainingLength = 43 - prefix.length;
-        
-        for (let i = 0; i < remainingLength; i++) {
-          address += base58Chars.charAt(Math.floor(Math.random() * base58Chars.length));
-        }
-
-        resultDiv.classList.remove('hidden');
-        resultDiv.querySelector('p:last-child').textContent = address;
-      }
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+  });
+});
   </script>
 </body>
 </html>
