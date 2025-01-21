@@ -30,24 +30,82 @@ const deployment = document.getElementById('deployment');
 const management = document.getElementById('management');
 const auditProgress = document.getElementById('audit-progress');
 
-// Template Selection
+// --- Enhanced Functionality ---
+
+// 1. Template Selection
+const templateCards = document.querySelectorAll('[data-template]');
 templateSelection.addEventListener('click', (event) => {
   const templateCard = event.target.closest('[data-template]');
   if (templateCard) {
-    // Highlight selected template (add styling or classes)
+    // Remove highlight from all cards
+    templateCards.forEach(card => card.classList.remove('ring-4', 'ring-blue-500'));
+
+    // Highlight selected template
+    templateCard.classList.add('ring-4', 'ring-blue-500');
+
     const selectedTemplate = templateCard.dataset.template;
     console.log('Selected template:', selectedTemplate);
 
     // Update configuration section based on selected template (placeholder)
-    // ...
+    updateConfigurationFields(selectedTemplate);
   }
 });
 
-// Configuration
+// Function to update configuration fields based on selected template
+function updateConfigurationFields(template) {
+  const tokenNameInput = document.getElementById('token-name');
+  const tokenSymbolInput = document.getElementById('token-symbol');
+  const tokenSupplyInput = document.getElementById('token-supply');
+  const aiSuggestion = document.querySelector('#configuration .italic');
+
+  // Reset fields
+  tokenNameInput.value = "";
+  tokenSymbolInput.value = "";
+  tokenSupplyInput.value = "";
+  aiSuggestion.textContent = "";
+
+  // Show/hide relevant fields based on template (placeholder logic)
+  if (template === 'token') {
+    tokenNameInput.parentElement.classList.remove('hidden');
+    tokenSymbolInput.parentElement.classList.remove('hidden');
+    tokenSupplyInput.parentElement.classList.remove('hidden');
+    tokenNameInput.placeholder = "Enter token name (e.g., MyToken)";
+    tokenSymbolInput.placeholder = "Enter token symbol (e.g., MTK)";
+    tokenSupplyInput.placeholder = "Enter token supply (e.g., 1000000)";
+  } else if (template === 'nft') {
+    tokenNameInput.parentElement.classList.remove('hidden');
+    tokenSymbolInput.parentElement.classList.remove('hidden');
+    tokenNameInput.placeholder = "Enter NFT name (e.g., MyNFT)";
+    tokenSymbolInput.placeholder = "Enter NFT symbol (e.g., NFT)";
+    tokenSupplyInput.parentElement.classList.add('hidden'); // Hide supply for NFTs
+  } else if (template === 'defi') {
+      tokenNameInput.parentElement.classList.remove('hidden');
+      tokenSymbolInput.parentElement.classList.remove('hidden');
+      tokenSupplyInput.parentElement.classList.remove('hidden');
+      tokenNameInput.placeholder = "Enter defi name (e.g., MyDefi)";
+      tokenSymbolInput.placeholder = "Enter defi symbol (e.g., MDEFI)";
+      tokenSupplyInput.placeholder = "Enter defi supply (e.g., 1000)";
+  } else if (template === 'dao') {
+    tokenNameInput.parentElement.classList.remove('hidden');
+    tokenSymbolInput.parentElement.classList.remove('hidden');
+    tokenNameInput.placeholder = "Enter DAO name (e.g., MyDAO)";
+    tokenSymbolInput.placeholder = "Enter DAO symbol (e.g., MDAO)";
+    tokenSupplyInput.parentElement.classList.add('hidden'); // Hide supply for DAO
+  } else {
+    // Hide all fields if no template is selected
+    tokenNameInput.parentElement.classList.add('hidden');
+    tokenSymbolInput.parentElement.classList.add('hidden');
+    tokenSupplyInput.parentElement.classList.add('hidden');
+  }
+}
+
+// 2. Configuration
 configuration.addEventListener('input', (event) => {
-  if (event.target.id === 'token-supply') {
-    const tokenSupply = event.target.value;
-    const aiSuggestion = event.target.nextElementSibling; // Get the AI suggestion element
+  const inputField = event.target;
+  const aiSuggestion = document.querySelector('#configuration .italic');
+
+  if (inputField.id === 'token-supply') {
+    const tokenSupply = inputField.value;
 
     // Basic placeholder suggestion
     if (tokenSupply > 1000000) {
@@ -55,10 +113,30 @@ configuration.addEventListener('input', (event) => {
     } else {
       aiSuggestion.textContent = "";
     }
-  }
+  } else if (inputField.id === 'token-name') {
+      const tokenName = inputField.value;
+
+      // Basic placeholder suggestion
+      if (tokenName.length > 0 && tokenName.length < 3) {
+          aiSuggestion.textContent = "AI Suggestion: Token name should be at least 3 characters.";
+      } else if (tokenName.length > 20) {
+          aiSuggestion.textContent = "AI Suggestion: Token name is too long, consider a shorter name.";
+      } else {
+          aiSuggestion.textContent = "";
+      }
+    } else if (inputField.id === 'token-symbol') {
+        const tokenSymbol = inputField.value;
+        if (tokenSymbol.length > 0 && tokenSymbol.length < 2) {
+            aiSuggestion.textContent = "AI Suggestion: Token symbol should be at least 2 characters.";
+        } else if (tokenSymbol.length > 5) {
+            aiSuggestion.textContent = "AI Suggestion: Token symbol is too long, consider a shorter symbol.";
+        } else {
+            aiSuggestion.textContent = "";
+        }
+    }
 });
 
-// Security Audit (Placeholder Animation)
+// 3. Security Audit (Placeholder Animation)
 securityAudit.addEventListener('click', () => {
   auditProgress.style.width = '0%'; // Reset
   let width = 0;
@@ -67,6 +145,7 @@ securityAudit.addEventListener('click', () => {
       clearInterval(interval);
       // Display mock security issues (placeholder)
       console.log('Security Audit Complete. Mock issues found.');
+      auditProgress.style.backgroundColor = 'green';
     } else {
       width += 10;
       auditProgress.style.width = width + '%';
@@ -74,10 +153,13 @@ securityAudit.addEventListener('click', () => {
   }, 200); // Adjust animation speed here
 });
 
-// Deployment (Placeholder)
+// 4. Deployment (Placeholder)
 deployment.addEventListener('click', (event) => {
   if (event.target.tagName === 'BUTTON') {
     console.log(event.target.textContent, 'clicked'); // Log button clicks
     // Simulate wallet connection or deployment
+    if (event.target.textContent === 'Deploy'){
+        alert("Contract Deployed")
+    }
   }
 });
