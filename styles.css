@@ -1,0 +1,36 @@
+.bg-gradient {
+  background: linear-gradient(135deg, #6c63ff 0%, #3f3d56 100%);
+}
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.solana-highlight {
+  background: linear-gradient(to right, #9945FF, #14F195);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes moveText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: moveText 3s ease-in-out infinite;
+}
+.dynamic-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.dynamic-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.active {
+  color: #6c63ff; /* Or any other style you prefer for the active link */
+}
+/* Add the other CSS styles from the <style> tag here */
