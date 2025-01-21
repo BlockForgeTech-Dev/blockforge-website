@@ -2,9 +2,9 @@
 window.addEventListener('load', () => {
   const dynamicText = document.querySelector('.dynamic-text');
   if (dynamicText) {
-      setTimeout(() => {
-          dynamicText.classList.add('visible');
-      }, 300);
+    setTimeout(() => {
+      dynamicText.classList.add('visible');
+    }, 300);
   }
 });
 
@@ -33,42 +33,42 @@ contractStatus.classList.add('text-green-500');
 // Chart.js for Transaction Volume Tracking
 const transactionCanvas = document.getElementById('transactionChart');
 if (transactionCanvas) {
-    const transactionChart = new Chart(transactionCanvas, {
-        type: 'line',
-        data: {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            datasets: [{
-                label: 'Transaction Volume',
-                data: [120, 150, 80, 200, 160, 250, 300], // Placeholder data
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 2,
-                tension: 0.4
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        color: 'white'
-                    }
-                }
-            },
-            layout: {
-                padding: {
-                    left: 10,
-                    right: 10,
-                    top: 10,
-                    bottom: 10
-                }
-            }
+  const transactionChart = new Chart(transactionCanvas, {
+    type: 'line',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Transaction Volume',
+        data: [120, 150, 80, 200, 160, 250, 300], // Placeholder data
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 2,
+        tension: 0.4
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
         }
-    });
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        }
+      },
+      layout: {
+        padding: {
+          left: 10,
+          right: 10,
+          top: 10,
+          bottom: 10
+        }
+      }
+    }
+  });
 }
 
 // Update the following metrics with simulated data
