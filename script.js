@@ -1,24 +1,24 @@
 // Dynamic text animation (for hero section - if needed)
 window.addEventListener('load', () => {
-    const dynamicText = document.querySelector('.dynamic-text');
-    if (dynamicText) {
-        setTimeout(() => {
-            dynamicText.classList.add('visible');
-        }, 300);
-    }
+  const dynamicText = document.querySelector('.dynamic-text');
+  if (dynamicText) {
+    setTimeout(() => {
+      dynamicText.classList.add('visible');
+    }, 300);
+  }
 });
 
 // Dynamic navigation highlighting
 window.addEventListener('load', () => {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-link');
+  const currentPath = window.location.pathname;
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-        }
-    });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+    }
+  });
 });
 
 // Function to generate a random Solana address (for demo purposes)
@@ -121,12 +121,12 @@ function updateConfigurationFields(template) {
     tokenSymbolInput.placeholder = "Enter NFT symbol (e.g., NFT)";
     tokenSupplyInput.parentElement.classList.add('hidden'); // Hide supply for NFTs
   } else if (template === 'defi') {
-    tokenNameInput.parentElement.classList.remove('hidden');
-    tokenSymbolInput.parentElement.classList.remove('hidden');
-    tokenSupplyInput.parentElement.classList.remove('hidden');
-    tokenNameInput.placeholder = "Enter defi name (e.g., MyDefi)";
-    tokenSymbolInput.placeholder = "Enter defi symbol (e.g., MDEFI)";
-    tokenSupplyInput.placeholder = "Enter defi supply (e.g., 1000)";
+      tokenNameInput.parentElement.classList.remove('hidden');
+      tokenSymbolInput.parentElement.classList.remove('hidden');
+      tokenSupplyInput.parentElement.classList.remove('hidden');
+      tokenNameInput.placeholder = "Enter defi name (e.g., MyDefi)";
+      tokenSymbolInput.placeholder = "Enter defi symbol (e.g., MDEFI)";
+      tokenSupplyInput.placeholder = "Enter defi supply (e.g., 1000)";
   } else if (template === 'dao') {
     tokenNameInput.parentElement.classList.remove('hidden');
     tokenSymbolInput.parentElement.classList.remove('hidden');
@@ -161,21 +161,21 @@ if (configuration) {
 
       // Basic placeholder suggestion
       if (tokenName.length > 0 && tokenName.length < 3) {
-        aiSuggestion.textContent = "AI Suggestion: Token name should be at least 3 characters.";
+          aiSuggestion.textContent = "AI Suggestion: Token name should be at least 3 characters.";
       } else if (tokenName.length > 20) {
-        aiSuggestion.textContent = "AI Suggestion: Token name is too long, consider a shorter name.";
+          aiSuggestion.textContent = "AI Suggestion: Token name is too long, consider a shorter name.";
       } else {
-        aiSuggestion.textContent = "";
+          aiSuggestion.textContent = "";
       }
     } else if (inputField.id === 'token-symbol') {
-      const tokenSymbol = inputField.value;
-      if (tokenSymbol.length > 0 && tokenSymbol.length < 2) {
-        aiSuggestion.textContent = "AI Suggestion: Token symbol should be at least 2 characters.";
-      } else if (tokenSymbol.length > 5) {
-        aiSuggestion.textContent = "AI Suggestion: Token symbol is too long, consider a shorter symbol.";
-      } else {
-        aiSuggestion.textContent = "";
-      }
+        const tokenSymbol = inputField.value;
+        if (tokenSymbol.length > 0 && tokenSymbol.length < 2) {
+            aiSuggestion.textContent = "AI Suggestion: Token symbol should be at least 2 characters.";
+        } else if (tokenSymbol.length > 5) {
+            aiSuggestion.textContent = "AI Suggestion: Token symbol is too long, consider a shorter symbol.";
+        } else {
+            aiSuggestion.textContent = "";
+        }
     }
   });
 }
@@ -183,59 +183,60 @@ if (configuration) {
 // 3. Security Audit (Placeholder Animation)
 if (securityAudit) {
     securityAudit.addEventListener('click', () => {
-      auditProgress.style.width = '0%'; // Reset
-      auditMessage.textContent = "Scanning for vulnerabilities..."
-      let width = 0;
-      const interval = setInterval(() => {
-        if (width >= 100) {
-          clearInterval(interval);
-          // Display mock security issues (placeholder)
-          auditMessage.textContent = "Security Audit Complete. No issues found.";
-          auditProgress.style.backgroundColor = 'green';
-        } else {
-          width += 10;
-          auditProgress.style.width = width + '%';
-        }
-      }, 200); // Adjust animation speed here
-    });
-  }
+    auditProgress.style.width = '0%'; // Reset
+    auditMessage.textContent = "Scanning for vulnerabilities..."
+    let width = 0;
+    const interval = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(interval);
+        // Display mock security issues (placeholder)
+        auditMessage.textContent = "Security Audit Complete. No issues found.";
+        auditProgress.style.backgroundColor = 'green';
+      } else {
+        width += 10;
+        auditProgress.style.width = width + '%';
+      }
+    }, 200); // Adjust animation speed here
+  });
+}
 
-  if (connectWalletButton) {
+// 4. Deployment (Placeholder)
+if (connectWalletButton) {
     connectWalletButton.addEventListener('click', () => {
         // Simulate wallet connection
         connectWalletButton.textContent = 'Wallet Connected';
         connectWalletButton.disabled = true;
         deploymentMessage.textContent = 'Wallet connected successfully. Ready to deploy.';
     });
-  }
+}
 
-  if (deployButton) {
+if (deployButton) {
     deployButton.addEventListener('click', async () => {
         if (!connectWalletButton.disabled) {
-            deploymentMessage.textContent = 'Please connect your wallet first.';
-            return;
+          deploymentMessage.textContent = 'Please connect your wallet first.';
+          return;
         }
-
+      
         // Simulate deployment process
         deployButton.disabled = true;
         deployButton.textContent = 'Deploying...';
         deploymentMessage.textContent = 'Deploying contract to the Solana blockchain...';
-
+      
         // Simulate a delay for deployment
         await delay(3000); // Wait for 3 seconds
-
+      
         deployButton.remove();
         deploymentMessage.textContent = 'Contract deployed successfully!';
-
+      
         // Generate a random Solana address for the demo
         const generatedAddress = generateRandomSolanaAddress();
         contractAddress.textContent = generatedAddress;
-
+      
         contractStatus.textContent = 'Active';
         contractStatus.classList.remove('text-red-500');
         contractStatus.classList.add('text-green-500');
-        management.classList.remove('hidden');
-
+        management.classList.remove('hidden')
+      
         // Show the "View Contract Dashboard" link and update href
         viewContractLink.classList.remove('hidden');
         viewContractLink.href = 'contract-management.html';
@@ -245,71 +246,94 @@ if (securityAudit) {
 
 // --- Contract Management Page Interactions ---
 
+// Placeholder Data for Contract Management (replace with real data later)
+const contractAddressElement = document.getElementById('contract-address');
+const contractStatusElement = document.getElementById('contract-status');
+
+if (contractAddressElement) {
+    contractAddressElement.textContent = "5h3AJ8oqWTL8sBySt2ZXBCGqPV3jz9bLfyJAzgP3wibn"; // Valid Solana address
+}
+if (contractStatusElement) {
+    contractStatusElement.textContent = "Active";
+    contractStatusElement.classList.add('text-green-500');
+}
+
 // Chart.js for Transaction Volume Tracking
 const transactionCanvas = document.getElementById('transactionChart');
 if (transactionCanvas) {
-  const transactionChart = new Chart(transactionCanvas, {
-    type: 'line',
-    data: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Transaction Volume',
-        data: [120, 150, 80, 200, 160, 250, 300], // Placeholder data
-        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 2,
-        tension: 0.4
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    const transactionChart = new Chart(transactionCanvas, {
+        type: 'line',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Transaction Volume',
+                data: [120, 150, 80, 200, 160, 250, 300], // Placeholder data
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                tension: 0.4
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 10
+                }
+            }
         }
-      },
-      plugins: {
-        legend: {
-          labels: {
-            color: 'white'
-          }
-        }
-      },
-      layout: {
-        padding: {
-          left: 10,
-          right: 10,
-          top: 10,
-          bottom: 10
-        }
-      }
-    }
-  });
-
-  // Function to add new data to the chart
-  function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
     });
-    chart.update();
-  }
 
-  // Simulate adding new data to the chart every 5 seconds
-  setInterval(() => {
-    const newDataPoint = Math.floor(Math.random() * 100) + 50; // Generate random data between 50 and 150
-    const newLabel = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    addData(transactionChart, newLabel, newDataPoint);
-
-    // Keep only the last 7 data points
-    if (transactionChart.data.labels.length > 7) {
-      transactionChart.data.labels.shift();
-      transactionChart.data.datasets.forEach((dataset) => {
-        dataset.data.shift();
-      });
+    // Function to add new data to the chart
+    function addData(chart, label, data) {
+        chart.data.labels.push(label);
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.push(data);
+        });
+        chart.update();
     }
 
-    transactionChart.update();
-  }, 5000); // 5 seconds interval
+    // Simulate adding new data to the chart every 5 seconds
+    setInterval(() => {
+        const newDataPoint = Math.floor(Math.random() * 100) + 50; // Generate random data between 50 and 150
+        const newLabel = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        addData(transactionChart, newLabel, newDataPoint);
+
+        // Keep only the last 7 data points
+        if (transactionChart.data.labels.length > 7) {
+            transactionChart.data.labels.shift();
+            transactionChart.data.datasets.forEach((dataset) => {
+                dataset.data.shift();
+            });
+        }
+
+        transactionChart.update();
+    }, 5000); // 5 seconds interval
+}
+
+// Update the following metrics with simulated data
+if (document.getElementById('total-transactions')) {
+    document.getElementById('total-transactions').textContent = '1,234';
+}
+if (document.getElementById('avg-gas-price')) {
+    document.getElementById('avg-gas-price').textContent = '50 Gwei';
+}
+if (document.getElementById('unique-interactors')) {
+    document.getElementById('unique-interactors').textContent = '456';
 }
 
 // Function to simulate contract interactions
