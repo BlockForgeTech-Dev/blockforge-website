@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Waitlist | BlockForge Technologies</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bg-gradient {
+      background: linear-gradient(135deg, #6c63ff 0%, #3f3d56 100%);
+    }
+    @keyframes moveText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: moveText 3s ease-in-out infinite;
+    }
+    .dynamic-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .dynamic-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <header class="bg-black py-6">
+    <div class="container mx-auto flex justify-between items-center px-8">
+      <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+        <img src="images/logo.svg" alt="BlockForge Logo" class="h-12 mr-3">
+        BlockForge
+      </a>
+      <nav>
+        <ul class="flex space-x-8">
+          <li><a href="index.html" class="text-white hover:text-blue-300">Home</a></li>
+          <li><a href="smart-contract-platform.html" class="text-white hover:text-blue-300">Smart Contract Platform</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bg-gradient py-32 relative overflow-hidden">
+      <div class="absolute inset-0 bg-black opacity-20"></div>
+      <div class="container mx-auto px-8 max-w-2xl relative z-10">
+        <h1 class="text-4xl font-bold mb-6 text-center animate-float">Join the BlockForge Waitlist</h1>
+        <p class="text-xl mb-12 text-center dynamic-text">Be the first to experience our AI-powered Smart Contract Platform</p>
+        
+        <form id="waitlist-form" class="bg-white/10 p-8 rounded-lg" onsubmit="submitForm(event)">
+          <div class="mb-6">
+            <label for="name" class="block mb-2 text-sm font-medium">Full Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              placeholder="Enter your full name" 
+              class="w-full px-4 py-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+          </div>
+
+          <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm font-medium">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              placeholder="Enter your email" 
+              class="w-full px-4 py-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+          </div>
+
+          <div class="mb-6">
+            <label for="role" class="block mb-2 text-sm font-medium">Role</label>
+            <select 
+              id="role" 
+              name="role" 
+              class="w-full px-4 py-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select your role</option>
+              <option value="developer">Developer</option>
+              <option value="entrepreneur">Entrepreneur</option>
+              <option value="investor">Investor</option>
+              <option value="student">Student</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="mb-6">
+            <label class="flex items-center">
+              <input 
+                type="checkbox" 
+                name="updates" 
+                checked 
+                class="mr-2 bg-gray-800 text-blue-500 focus:ring-blue-500"
+              >
+              <span>I want to receive updates and early access information</span>
+            </label>
+          </div>
+
+          <button 
+            type="submit" 
+            class="w-full bg-blue-600 text-white py-4 rounded hover:bg-blue-700 transition duration-300"
+          >
+            Join Waitlist
+          </button>
+        </form>
+
+        <div id="form-message" class="mt-6 text-center"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black py-12">
+    <div class="container mx-auto px-8 text-center">
+      <p>&copy; 2024 BlockForge Technologies. All rights reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+        <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic text animation
+    window.addEventListener('load', () => {
+      const dynamicText = document.querySelector('.dynamic-text');
+      setTimeout(() => {
+        dynamicText.classList.add('visible');
+      }, 300);
+    });
+
+    function submitForm(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formMessage = document.getElementById('form-message');
+      
+      // Basic form validation
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const role = form.role.value;
+
+      // Reset previous messages
+      formMessage.innerHTML = '';
+      formMessage.className = 'mt-6 text-center';
+
+      // Validate inputs
+      if (!name) {
+        showError('Please enter your full name.');
+        return;
+      }
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('Please enter a valid email address.');
+        return;
+      }
+
+      // Simulate form submission
+      showSuccess('Thank you for joining the BlockForge waitlist! We\'ll keep you updated.');
+
+      // Optional: You might want to disable the form or reset it
+      form.reset();
+    }
+
+    function showError(message) {
+      const formMessage = document.getElementById('form-message');
+      formMessage.innerHTML = message;
+      formMessage.className += ' text-red-400';
+    }
+
+    function showSuccess(message) {
+      const formMessage = document.getElementById('form-message');
+      formMessage.innerHTML = message;
+      formMessage.className += ' text-green-400';
+    }
+  </script>
+</body>
+</html>

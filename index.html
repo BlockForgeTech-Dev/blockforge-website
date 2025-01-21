@@ -30,7 +30,8 @@
       <nav>
         <ul class="flex space-x-8">
           <li><a href="#namegenai" class="text-white hover:text-blue-300">NameGenAI</a></li>
-          <li><a href="#smartcontract" class="text-white hover:text-blue-300">Smart Contract Platform</a></li>
+          <li><a href="smart-contract-platform.html" class="text-white hover:text-blue-300">Smart Contract Platform</a></li>
+          <li><a href="newsletter.html" class="text-white hover:text-blue-300">Newsletter</a></li>
           <li><a href="#about" class="text-white hover:text-blue-300">About</a></li>
         </ul>
       </nav>
@@ -43,143 +44,6 @@
         <h1 class="text-5xl font-bold mb-6">Pioneering Blockchain and AI Innovation</h1>
         <p class="text-xl mb-12">Empowering developers and businesses with cutting-edge tools and platforms.</p>
         <a href="#namegenai" class="bg-white text-black py-4 px-8 rounded-full font-semibold hover:bg-blue-300">Get Started</a>
-      </div>
-    </section>
-
-    <section id="namegenai" class="py-32">
-      <div class="container mx-auto px-8">
-        <h2 class="text-4xl font-bold mb-12">NameGenAI - Solana Wallet Generator</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <div class="bg-gray-800 rounded-lg p-8 mb-8">
-              <h3 class="text-2xl font-bold mb-6">Preview Your Custom Wallet</h3>
-              <p class="text-lg mb-6">Enter up to 6 characters to see how your personalized wallet address could look.</p>
-              <div class="mb-6">
-                <label for="prefix" class="block text-sm font-medium mb-2">Wallet Prefix</label>
-                <input type="text" 
-                       id="prefix" 
-                       maxlength="6" 
-                       placeholder="Enter up to 6 characters" 
-                       class="w-full bg-gray-700 text-white py-4 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       pattern="[A-Za-z0-9]{1,6}">
-                <p id="validation-message" class="text-sm text-gray-400 mt-2">Letters and numbers only (A-Z, a-z, 0-9)</p>
-              </div>
-              <button id="preview" 
-                      class="w-full bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 mb-6 disabled:opacity-50 disabled:cursor-not-allowed">
-                Preview Address
-              </button>
-              <div id="result" class="bg-gray-700 rounded-lg p-4 hidden">
-                <p class="text-sm text-gray-300 mb-2">Sample Wallet Address:</p>
-                <p class="font-mono break-all text-lg"></p>
-              </div>
-            </div>
-            
-            <div class="bg-blue-900 rounded-lg p-8">
-              <h3 class="text-xl font-bold mb-4">Ready to Generate Your Wallet?</h3>
-              <p class="mb-6">For secure wallet generation with your custom prefix, use our official Telegram bot. Our bot provides:</p>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>Secure, on-demand generation</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>Private key protection</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>24/7 availability</span>
-                </li>
-              </ul>
-              <a href="https://t.me/NameGenAIBot" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="block text-center bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
-                Open Telegram Bot
-              </a>
-            </div>
-          </div>
-          <div class="space-y-8">
-            <div class="bg-gray-800 rounded-lg p-8">
-              <h3 class="text-2xl font-bold mb-6">How It Works</h3>
-              <div class="space-y-6">
-                <div class="flex items-start">
-                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
-                    <span class="text-xl font-bold">1</span>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold mb-2">Choose Your Prefix</h4>
-                    <p class="text-gray-300">Enter up to 6 characters that you want your wallet address to start with.</p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
-                    <span class="text-xl font-bold">2</span>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold mb-2">Preview Format</h4>
-                    <p class="text-gray-300">See how your customized wallet address could look.</p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
-                    <span class="text-xl font-bold">3</span>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold mb-2">Generate Securely</h4>
-                    <p class="text-gray-300">Use our Telegram bot for secure, actual wallet generation.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-8">
-              <h3 class="text-xl font-bold mb-4">Security Notice</h3>
-              <p class="text-gray-300 mb-4">This preview tool only shows sample addresses. For actual wallet generation with private keys, please use our secure Telegram bot.</p>
-              <p class="text-gray-300">Never share your private keys or seed phrases with anyone.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="smartcontract" class="bg-gray-800 py-32">
-      <div class="container mx-auto px-8 text-center">
-        <h2 class="text-4xl font-bold mb-8">Smart Contract Platform</h2>
-        <div class="max-w-2xl mx-auto">
-          <p class="text-xl mb-8">Our revolutionary smart contract platform is currently under development.</p>
-          <div class="bg-gray-700 rounded-lg p-8 mb-8">
-            <h3 class="text-2xl font-bold mb-4">Coming Soon</h3>
-            <ul class="text-left space-y-4">
-              <li class="flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Intuitive drag-and-drop interface
-              </li>
-              <li class="flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                AI-assisted code generation
-              </li>
-              <li class="flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                One-click deployment to multiple blockchains
-              </li>
-            </ul>
-          </div>
-          <button class="bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700" disabled>
-            Platform Launch: Q2 2024
-          </button>
-        </div>
       </div>
     </section>
 
@@ -225,9 +89,6 @@
             <p class="text-xl">We believe in a future where blockchain and AI are seamlessly integrated into everyday life, offering transparency, efficiency, and security. As we grow, we aim to expand into new domains, such as decentralized identity, NFT solutions, and AI-driven financial tools.</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h3 class="text-2xl font-bold mb
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <h3 class="text-2xl font-bold mb-6">Why Choose Us?</h3>
@@ -280,7 +141,7 @@
           <h3 class="text-xl font-bold mb-4">Products</h3>
           <ul class="space-y-2">
             <li><a href="#namegenai" class="hover:text-blue-300">NameGenAI</a></li>
-            <li><a href="#smartcontract" class="hover:text-blue-300">Smart Contract Platform</a></li>
+            <li><a href="smart-contract-platform.html" class="hover:text-blue-300">Smart Contract Platform</a></li>
           </ul>
         </div>
         <div>
@@ -292,11 +153,11 @@
           </ul>
         </div>
         <div>
-       	<h3 class="text-xl font-bold mb-4">Legal</h3>
- 	 <ul class="space-y-2">
-   	 <li><a href="privacy.html" class="hover:text-blue-300">Privacy Policy</a></li>
-   	 <li><a href="terms.html" class="hover:text-blue-300">Terms of Service</a></li>
- 	 </ul>
+        <h3 class="text-xl font-bold mb-4">Legal</h3>
+         <ul class="space-y-2">
+           <li><a href="privacy.html" class="hover:text-blue-300">Privacy Policy</a></li>
+           <li><a href="terms.html" class="hover:text-blue-300">Terms of Service</a></li>
+         </ul>
         </div>
       </div>
       <div class="border-t border-gray-800 pt-8">
@@ -311,11 +172,9 @@
     const resultDiv = document.getElementById('result');
     const validationMessage = document.getElementById('validation-message');
 
-    // Base58 character set (excluding similar-looking characters)
     const base58Chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 
     const validatePrefix = (prefix) => {
-      // Allow alphanumeric characters, 1-6 length
       const validRegex = /^[A-Za-z0-9]{1,6}$/;
       return validRegex.test(prefix);
     };
@@ -346,21 +205,18 @@
     previewButton.addEventListener('click', () => {
       const prefix = prefixInput.value.trim();
       if (validatePrefix(prefix)) {
-        // Generate a sample address
         let address = prefix;
-        const remainingLength = 43 - prefix.length; // Standard Solana address length
+        const remainingLength = 43 - prefix.length;
         
         for (let i = 0; i < remainingLength; i++) {
           address += base58Chars.charAt(Math.floor(Math.random() * base58Chars.length));
         }
 
-        // Show the result
         resultDiv.classList.remove('hidden');
         resultDiv.querySelector('p:last-child').textContent = address;
       }
     });
 
-    // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
