@@ -54,29 +54,28 @@
           <div>
             <div class="bg-gray-800 rounded-lg p-8 mb-8">
               <h3 class="text-2xl font-bold mb-6">Preview Your Custom Wallet</h3>
-              <p class="text-lg mb-6">Enter up to 6 characters to see how your personalized wallet address could look.</p>
+              <p class="text-lg mb-6">Enter up to 6 characters to see how your personalized wallet address could look. </p>
+              <p class="text-gray-300 font-medium">Your wallet will be 44 characters in length.</p>
               <div class="mb-6">
                 <label for="prefix" class="block text-sm font-medium mb-2">Wallet Prefix</label>
-                <input type="text" 
-                       id="prefix" 
-                       maxlength="6" 
-                       placeholder="Enter up to 6 characters" 
-                       class="w-full bg-gray-700 text-white py-4 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       pattern="[A-Za-z0-9]{1,6}">
+                <input type="text" id="prefix" maxlength="6" placeholder="Enter up to 6 characters"
+                  class="w-full bg-gray-700 text-white py-4 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  pattern="[A-Za-z0-9]{1,6}">
                 <p id="validation-message" class="text-sm text-gray-400 mt-2">Letters and numbers only (A-Z, a-z, 0-9)</p>
               </div>
-              <button id="preview" 
-                      class="w-full bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 mb-6 disabled:opacity-50 disabled:cursor-not-allowed">
+              <button id="preview"
+                class="w-full bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 mb-6 disabled:opacity-50 disabled:cursor-not-allowed">
                 Preview Address
               </button>
               <div id="result" class="bg-gray-700 rounded-lg p-4 hidden">
                 <p class="text-sm text-gray-300 mb-2">Sample Wallet Address:</p>
-                <p class="font-mono break-all text-lg"></p>
+                <p class="font-mono break-all text-lg" id="preview-address"></p>
               </div>
             </div>
             <div class="bg-blue-900 rounded-lg p-8">
               <h3 class="text-xl font-bold mb-4">Ready to Generate Your Wallet?</h3>
-              <p class="mb-6">For secure wallet generation with your custom prefix, use our official Telegram bot. Our bot provides:</p>
+              <p class="mb-6">For secure wallet generation with your custom prefix, use our official Telegram bot.
+                Our bot provides:</p>
               <ul class="space-y-3 mb-6">
                 <li class="flex items-start">
                   <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,10 +96,8 @@
                   <span>24/7 availability</span>
                 </li>
               </ul>
-              <a href="https://t.me/namegenai_Bot" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="block text-center bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
+              <a href="https://t.me/NameGenAIBot" target="_blank" rel="noopener noreferrer"
+                class="block text-center bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
                 Open Telegram Bot
               </a>
             </div>
@@ -139,8 +136,18 @@
               </div>
             </div>
             <div class="bg-gray-800 rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6">Key Features</h3>
+              <ul class="list-disc pl-6 space-y-3">
+                <li><strong>Base58 Encoding:</strong> Avoids confusing characters like 0/O and l/I.</li>
+                <li><strong>Length:</strong> Always 44 characters long.</li>
+                <li><strong>Case-Sensitive:</strong> Uses uppercase and lowercase letters.</li>
+                <li><strong>No Special Characters:</strong> Only alphanumeric characters (a-z, A-Z, 0-9).</li>
+              </ul>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-8">
               <h3 class="text-xl font-bold mb-4">Security Notice</h3>
-              <p class="text-gray-300 mb-4">This preview tool only shows sample addresses. For actual wallet generation with private keys, please use our secure Telegram bot.</p>
+              <p class="text-gray-300 mb-4">This preview tool only shows sample addresses. For actual wallet generation
+                with private keys, please use our secure Telegram bot.</p>
               <p class="text-gray-300">Never share your private keys or seed phrases with anyone.</p>
             </div>
           </div>
@@ -206,7 +213,7 @@
         </div>
       </div>
       <div class="border-t border-gray-800 pt-8">
-        <p class="text-center">&copy; 2025 BlockForge Technologies. All rights reserved.</p>
+        <p class="text-center">© 2025 BlockForge Technologies. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -215,6 +222,7 @@
     const prefixInput = document.getElementById('prefix');
     const previewButton = document.getElementById('preview');
     const resultDiv = document.getElementById('result');
+    const previewAddress = document.getElementById('preview-address');
     const validationMessage = document.getElementById('validation-message');
 
     const base58Chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
@@ -227,19 +235,16 @@
     const updateValidationMessage = (prefix) => {
       const isValid = validatePrefix(prefix);
       const length = prefix.length;
-      
-      if (length === 0) {
-        validationMessage.textContent = 'Enter 1-6 characters (A-Z, a-z, 0-9)';
-        validationMessage.className = 'text-sm text-gray-400 mt-
-        2';
-      } else if (!isValid) {
-        validationMessage.textContent = 'Only letters and numbers allowed';
-        validationMessage.className = 'text-sm text-red-400 mt-2';
-      } else {
-        validationMessage.textContent = `Valid prefix! (${length}/6 characters)`;
-        validationMessage.className = 'text-sm text-green-400 mt-2';
+      let message = 'Enter 1-6 characters (A-Z, a-z, 0-9)';
+      let className = 'text-sm text-gray-400 mt-2';
+
+      if (length > 0) {
+        message = isValid ? `Valid prefix! (${length}/6 characters)` : 'Only letters and numbers allowed';
+        className = `text-sm text-${isValid ? 'green' : 'red'}-400 mt-2`;
       }
 
+      validationMessage.textContent = message;
+      validationMessage.className = className;
       previewButton.disabled = !isValid;
     };
 
@@ -252,14 +257,14 @@
       const prefix = prefixInput.value.trim();
       if (validatePrefix(prefix)) {
         let address = prefix;
-        const remainingLength = 43 - prefix.length;
+        const remainingLength = 44 - prefix.length;
 
         for (let i = 0; i < remainingLength; i++) {
           address += base58Chars.charAt(Math.floor(Math.random() * base58Chars.length));
         }
 
         resultDiv.classList.remove('hidden');
-        resultDiv.querySelector('p:last-child').textContent = address;
+        previewAddress.textContent = address;
       }
     });
 
