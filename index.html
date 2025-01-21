@@ -23,6 +23,20 @@
     .active {
       color: #6c63ff; /* Or any other style you prefer for the active link */
     }
+    @keyframes text-fade {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-text {
+      animation: text-fade 1.5s ease-out;
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -35,8 +49,8 @@
       <nav>
         <ul class="flex space-x-8">
           <li><a href="#namegenai" class="nav-link text-white hover:text-blue-300">NameGenAI</a></li>
-          <li><a href="smart-contract-platform.html" class="nav-link text-white hover:text-blue-300">Smart Contract Platform</a></li>
-          <li><a href="newsletter.html" class="nav-link text-white hover:text-blue-300">Newsletter</a></li>
+          <li><a href="#smart-contract-platform" class="nav-link text-white hover:text-blue-300">Smart Contract Platform</a></li>
+          <li><a href="#newsletter" class="nav-link text-white hover:text-blue-300">Newsletter</a></li>
           <li><a href="#about" class="nav-link text-white hover:text-blue-300">About</a></li>
         </ul>
       </nav>
@@ -46,9 +60,9 @@
   <main>
     <section id="hero" class="bg-gradient py-32">
       <div class="container mx-auto px-8">
-        <h1 class="text-5xl font-bold mb-6" id="hero-heading">Pioneering Blockchain and AI Innovation</h1>
-        <p class="text-xl mb-12" id="hero-text">Empowering developers and businesses with cutting-edge tools and platforms.</p>
-        <a href="#namegenai" class="bg-white text-black py-4 px-8 rounded-full font-semibold hover:bg-blue-300">Get Started</a>
+        <h1 class="text-5xl font-bold mb-6 animate-text" id="hero-heading">Pioneering Blockchain and AI Innovation</h1>
+        <p class="text-xl mb-12 animate-text" id="hero-text">Empowering developers and businesses with cutting-edge tools and platforms.</p>
+        <a href="#namegenai" class="bg-white text-black py-4 px-8 rounded-full font-semibold hover:bg-blue-300 animate-text">Get Started</a>
       </div>
     </section>
 
@@ -161,28 +175,63 @@
     </section>
 
     <section id="security-audit" class="py-32 bg-gray-800">
-      <div class="container mx-auto px-8">
-        <h2 class="text-4xl font-bold mb-12">Comprehensive Security Audits</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <p class="text-lg mb-6">At BlockForge, security is paramount. Our comprehensive security audits ensure that your blockchain applications and smart contracts are secure, reliable, and resilient against potential vulnerabilities.</p>
-            <ul class="list-disc pl-6 space-y-3">
-              <li>Smart contract vulnerability assessments</li>
-              <li>Compliance with blockchain security standards</li>
-              <li>Detailed audit reports with actionable recommendations</li>
-              <li>Continuous monitoring for evolving threats</li>
+      <div class="container mx-auto px-8 text-center">
+        <h2 class="text-4xl font-bold mb-12">Comprehensive Security Audit</h2>
+        <div class="max-w-4xl mx-auto bg-gray-700 rounded-lg p-8 card">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold">Blockchain Security Assessment</h3>
+            <span class="text-green-400 font-bold text-xl">9.7/10 Security Score</span>
+          </div>
+          <p class="text-lg mb-6">Our platform has undergone rigorous security testing by leading blockchain security experts to ensure maximum protection and reliability.</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <h4 class="text-xl font-semibold mb-4">Vulnerability Scan</h4>
+              <p class="text-gray-300">Comprehensive analysis of potential security risks</p>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold mb-4">Code Review</h4>
+              <p class="text-gray-300">Thorough examination of smart contract code</p>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold mb-4">Penetration Testing</h4>
+              <p class="text-gray-300">Advanced threat detection and mitigation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="smart-contract-platform" class="py-32">
+      <div class="container mx-auto px-8 text-center">
+        <h2 class="text-4xl font-bold mb-8">Smart Contract Platform</h2>
+        <div class="max-w-2xl mx-auto">
+          <p class="text-xl mb-8">Our revolutionary smart contract platform is currently under development.</p>
+          <div class="bg-gray-800 rounded-lg p-8 mb-8 card">
+            <h3 class="text-2xl font-bold mb-4">Coming Soon</h3>
+            <ul class="text-left space-y-4">
+              <li class="flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Intuitive drag-and-drop interface
+              </li>
+              <li class="flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                AI-assisted code generation
+              </li>
+              <li class="flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                One-click deployment to multiple blockchains
+              </li>
             </ul>
           </div>
-          <div class="bg-gray-900 p-8 rounded-lg card">
-            <h3 class="text-2xl font-bold mb-6">Our Approach</h3>
-            <p class="text-lg mb-6">We employ cutting-edge tools and methodologies to provide thorough security evaluations:</p>
-            <ul class="list-disc pl-6 space-y-3">
-              <li>Static and dynamic code analysis</li>
-              <li>Penetration testing by industry experts</li>
-              <li>Automated vulnerability scanning</li>
-              <li>Manual review by seasoned security professionals</li>
-            </ul>
-          </div>
+          <a href="smart-contract-platform.html" class="bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700">
+            Learn More
+          </a>
         </div>
       </div>
     </section>
@@ -267,7 +316,7 @@
           <h3 class="text-xl font-bold mb-4">Products</h3>
           <ul class="space-y-2">
             <li><a href="#namegenai" class="hover:text-blue-300">NameGenAI</a></li>
-            <li><a href="smart-contract-platform.html" class="hover:text-blue-300">Smart Contract Platform</a></li>
+            <li><a href="#smart-contract-platform" class="hover:text-blue-300">Smart Contract Platform</a></li>
           </ul>
         </div>
         <div>
