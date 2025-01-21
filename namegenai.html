@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NameGenAI - Solana Wallet Generator | BlockForge Technologies</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+<header class="bg-black py-6">
+    <div class="container mx-auto flex justify-between items-center px-8">
+      <a href="/" class="text-2xl font-bold text-white flex items-center">
+        <img src="images/logo.svg" alt="BlockForge Logo" class="h-12 mr-3">
+        BlockForge
+      </a>
+      <nav>
+        <ul class="flex space-x-8">
+          <li><a href="/#namegenai" class="nav-link text-white hover:text-blue-300 active">NameGenAI</a></li>
+          <li><a href="smart-contract-platform.html" class="nav-link text-white hover:text-blue-300">Smart Contract Platform</a></li>
+          <li><a href="ai-contracts.html" class="nav-link text-white hover:text-blue-300">AI Contracts</a></li>
+          <li><a href="newsletter.html" class="nav-link text-white hover:text-blue-300">Newsletter</a></li>
+          <li><a href="about.html" class="nav-link text-white hover:text-blue-300">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bg-gradient py-32 relative overflow-hidden" id="hero">
+      <div class="container mx-auto px-8 text-center relative z-10">
+        <h1 class="text-5xl font-bold mb-6 animate-float" id="hero-heading">NameGenAI - <span class="solana-highlight">Solana</span> Wallet Generator</h1>
+        <p class="text-xl mb-12 dynamic-text">
+            Create your own personalized <span class="solana-highlight">Solana</span> wallet address using the power of AI.
+        </p>
+        <a href="#preview" class="bg-white text-black py-4 px-8 rounded-full font-semibold hover:bg-blue-300 animate-text">
+            Preview Your Wallet
+        </a>
+      </div>
+    </section>
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">About NameGenAI</h2>
+            <div class="text-lg leading-relaxed space-y-6">
+                <p>
+                    NameGenAI is a revolutionary AI-powered tool designed to simplify and enhance the process of creating personalized Solana wallet addresses. Developed by BlockForge Technologies, NameGenAI combines advanced artificial intelligence, robust blockchain technology, and a user-friendly interface to empower crypto enthusiasts, developers, and businesses alike.
+                </p>
+                <h3 class="text-2xl font-bold mt-8">What is NameGenAI?</h3>
+                <p>
+                    NameGenAI is a custom Solana wallet address generator that allows users to create wallet addresses tailored to their preferences. Whether you're looking for a wallet address with a specific prefix, name, or thematic style, NameGenAI makes the process seamless, secure, and accessible.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="preview" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Preview and Generate</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-gray-700 rounded-lg p-8 mb-8 card">
+                        <h3 class="text-2xl font-bold mb-6">Preview Your Custom Wallet</h3>
+                        <p class="text-lg mb-6">Enter up to 6 characters to see how your personalized wallet address could look. </p>
+                        <p class="text-gray-300 font-medium">Your wallet will be 44 characters in length.</p>
+                        <div class="mb-6">
+                            <label for="prefix" class="block text-sm font-medium mb-2">Wallet Prefix</label>
+                            <input type="text" id="prefix" maxlength="6" placeholder="Enter up to 6 characters"
+                            class="w-full bg-gray-600 text-white py-4 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            pattern="[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{1,6}">
+                            <p id="validation-message" class="text-sm text-gray-400 mt-2">Letters and numbers only (A-Z, a-z, 0-9)</p>
+                        </div>
+                        <button id="preview-button"
+                            class="w-full bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 mb-6 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Preview Address
+                        </button>
+                        <div id="result" class="bg-gray-600 rounded-lg p-4 hidden">
+                            <p class="text-sm text-gray-300 mb-2">Sample Wallet Address:</p>
+                            <p class="font-mono break-all text-lg" id="preview-address"></p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-900 rounded-lg p-8 card">
+                        <h3 class="text-xl font-bold mb-4">Ready to Generate Your Wallet?</h3>
+                        <p class="mb-6">For secure wallet generation with your custom prefix, use our official Telegram bot.
+                            Our bot provides:</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Secure, on-demand generation</span>
+                            </li>
+                            <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Private key protection</span>
+                            </li>
+                            <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-blue-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>24/7 availability</span>
+                            </li>
+                        </ul>
+                        <a href="https://t.me/NameGenAIBot" target="_blank" rel="noopener noreferrer"
+                            class="block text-center bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Open Telegram Bot
+                        </a>
+                    </div>
+                </div>
+            <div class="bg-gray-800 rounded-lg p-8 card">
+                <h3 class="text-2xl font-bold mb-6">How It Works</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">1</span>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Choose Your Prefix</h4>
+                            <p class="text-gray-300">Enter up to 6 characters that you want your wallet address to start with.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">2</span>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Preview Format</h4>
+                            <p class="text-gray-300">See how your customized wallet address could look.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">3</span>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Generate Securely</h4>
+                            <p class="text-gray-300">Use our Telegram bot for secure, actual wallet generation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="key-features" class="py-16">
+            <div class="container mx-auto px-8">
+                <h2 class="text-4xl font-bold text-center mb-12">Key Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">Custom Wallet Address Generation</h3>
+                        <p class="text-gray-300">Specify prefixes or characters (up to 6) to make your wallet address unique and personal. Ideal for branding, professional crypto accounts, or simply standing out in the blockchain world.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">AI-Enhanced Optimization</h3>
+                        <p class="text-gray-300">Intelligent algorithms optimize address generation for efficiency and accuracy. AI ensures compatibility and adherence to Solana’s blockchain standards.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">Secure and Private</h3>
+                        <p class="text-gray-300">The platform prioritizes security with advanced encryption protocols. Your private keys are generated securely and never shared, ensuring full ownership and control.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">Real-Time Preview</h3>
+                        <p class="text-gray-300">Preview potential wallet addresses based on your input before generating the final version.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">Seamless Integration</h3>
+                        <p class="text-gray-300">Compatible with Solana tools and platforms, ensuring smooth functionality within the broader blockchain ecosystem.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">Accessible via Telegram</h3>
+                        <p class="text-gray-300">NameGenAI offers an exclusive Telegram bot for secure wallet generation, providing on-demand wallet creation and privacy-focused generation with easy access for mobile and desktop users.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="why-choose" class="py-16 bg-gray-800">
+            <div class="container mx-auto px-8 text-center">
+                <h2 class="text-4xl font-bold mb-8">Why Choose NameGenAI?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Customization</h3>
+                        <p class="text-gray-300">Go beyond generic wallet addresses and create something that truly represents you or your brand.</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Efficiency</h3>
+                        <p class="text-gray-300">AI algorithms handle the complex computational process, making address generation fast and seamless.</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Innovation</h3>
+                        <p class="text-gray-300">NameGenAI showcases the cutting-edge capabilities of AI in blockchain applications.</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Community-Focused</h3>
+                        <p class="text-gray-300">Developed with crypto users in mind, NameGenAI is designed to empower the community with tools that simplify blockchain adoption.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+          <section id="how-it-works" class="py-16">
+            <div class="container mx-auto px-8">
+              <h2 class="text-4xl font-bold text-center mb-12">How It Works</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg">
+                  <h3 class="text-2xl font-bold mb-4">Step-by-Step Guide</h3>
+                  <ul class="list-decimal pl-6 space-y-4 text-gray-300">
+                    <li>
+                      <h4 class="font-semibold">Input Preferences</h4>
+                      <p>Choose a prefix or specific characters you'd like your wallet address to include.</p>
+                    </li>
+                    <li>
+                      <h4 class="font-semibold">AI Generation</h4>
+                      <p>The AI algorithm processes billions of possibilities to find an address matching your input.</p>
+                    </li>
+                    <li>
+                      <h4 class="font-semibold">Preview and Confirm</h4>
+                      <p>View a preview of the generated address before finalizing.</p>
+                    </li>
+                    <li>
+                      <h4 class="font-semibold">Secure Wallet Creation</h4>
+                      <p>Generate your wallet securely, with all private keys remaining under your control.</p>
+                    </li>
+                    <li>
+                      <h4 class="font-semibold">Download and Use</h4>
+                      <p>Download your wallet details and integrate them with your Solana-compatible wallet or dApp.</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-lg">
+                  <h3 class="text-2xl font-bold mb-4">Visual Guide</h3>
+                  <p class="text-gray-300">An illustrative guide showing the user journey through NameGenAI, highlighting ease of use and efficiency.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="use-cases" class="py-16">
+            <div class="container mx-auto px-8">
+              <h2 class="text-4xl font-bold text-center mb-12">Use Cases</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+                  <h3 class="text-2xl font-bold mb-4">Personal Branding</h3>
+                  <p class="text-gray-300">Create a wallet address that reflects your identity or company name.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+                  <h3 class="text-2xl font-bold mb-4">NFT and DeFi Projects</h3>
+                  <p class="text-gray-300">Distinguish your project wallets with unique, branded addresses.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+                  <h3 class="text-2xl font-bold mb-4">Corporate and Professional Wallets</h3>
+                  <p class="text-gray-300">Enhance trust and recognition with custom wallet addresses.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="technical-highlights" class="py-16 bg-gray-800">
+            <div class="container mx-auto px-8">
+              <h2 class="text-4xl font-bold text-center mb-12">Technical Highlights</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-700 p-8 rounded-lg shadow-lg">
+                  <h3 class="text-2xl font-bold mb-4">Blockchain Technology</h3>
+                  <p class="text-gray-300">Built on Solana’s high-performance blockchain, ensuring scalability and low fees.</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-lg">
+                  <h3 class="text-2xl font-bold mb-4">AI-Powered Efficiency</h3>
+                  <p class="text-gray-300">Advanced machine learning models accelerate wallet generation for complex customizations.</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-lg">
+                  <h3 class="text-2xl font-bold mb-4">Secure Key Management</h3>
+                  <p class="text-gray-300">Industry-standard encryption ensures private keys are secure and private.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="future-vision" class="py-16">
+            <div class="container mx-auto px-8 text-center">
+              <h2 class="text-4xl font-bold mb-8">Future Vision</h2>
+              <p class="text-xl mb-8">NameGenAI is more than a wallet generator—it’s the beginning of a blockchain personalization movement. Future updates aim to include:</p>
+              <ul class="list-disc pl-6 space-y-4 text-gray-300">
+                <li>Support for Additional Chains: Expanding beyond Solana to other blockchain ecosystems.</li>
+                <li>Enhanced AI Tools: Introducing additional customization options, such as thematic styles or special patterns.</li>
+                <li>Integration with dApps: Seamlessly connect NameGenAI-generated wallets to popular decentralized applications.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="getting-started" class="py-16 bg-gray-800">
+            <div class="container mx-auto px-8 text-center">
+              <h2 class="text-4xl font-bold mb-8">Getting Started</h2>
+              <p class="text-xl mb-8">To create your custom Solana wallet address:</p>
+              <ul class="list-disc pl-6 space-y-4 text-gray-300">
+                <li>Use the preview tool on our website to experiment with prefixes.</li>
+                <li>Access the NameGenAI Telegram bot for secure wallet creation.</li>
+                <li>Enjoy a personalized, secure blockchain experience tailored to your needs.</li>
+              </ul>
+              <div class="mt-8">
+                <a href="https://t.me/NameGenAIBot" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition duration-300">
+                  Try NameGenAI on Telegram
+                </a>
+              </div>
+            </div>
+          </section>
+</main>
+
+<footer class="bg-black py-12">
+  <div class="container mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">BlockForge</h3>
+        <p>Pioneering the future of blockchain and AI technology.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Products</h3>
+        <ul class="space-y-2">
+          <li><a href="/#namegenai" class="hover:text-blue-300">NameGenAI</a></li>
+          <li><a href="smart-contract-platform.html" class="hover:text-blue-300">Smart Contract Platform</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Connect</h3>
+        <ul class="space-y-2">
+          <li><a href="https://twitter.com/blockforge_tech" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">BlockForge Twitter</a></li>
+          <li><a href="https://t.me/BlockForge" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">Telegram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="privacy.html" class="hover:text-blue-300">Privacy Policy</a></li>
+          <li><a href="terms.html" class="hover:text-blue-300">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8">
+      <p class="text-center">© 2025 BlockForge Technologies. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="scripts.js"></script>
+<script>
+  // Add active class to the current link
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.getAttribute('href').includes('namegenai.html')) {
+      link.classList.add('active');
+    }
+  });
+</script>
+</body>
+</html>
