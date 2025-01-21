@@ -1,488 +1,299 @@
-// Dynamic text animation (for hero section - if needed)
-window.addEventListener('load', () => {
-  const dynamicText = document.querySelector('.dynamic-text');
-  if (dynamicText) {
-    setTimeout(() => {
-      dynamicText.classList.add('visible');
-    }, 300);
-  }
-});
-
-// Dynamic navigation highlighting
-window.addEventListener('load', () => {
-  const navLinks = document.querySelectorAll('.nav-link');
-  const currentPath = window.location.pathname;
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    // Check if the link's href matches the current path or if it's the homepage
-    if (link.getAttribute('href') === currentPath || (currentPath === '/' && link.getAttribute('href') === './')) {
-      link.classList.add('active');
-    }
-  });
-});
-
-// Function to generate a random Solana address (for demo purposes)
+// Utility functions for generating random data
 function generateRandomSolanaAddress() {
-  const characters = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
-  let address = '';
-  for (let i = 0; i < 44; i++) {
-    address += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return address;
+    const characters = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+    let address = '';
+    for (let i = 0; i < 44; i++) {
+        address += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return address;
 }
 
-// Function to generate a random token symbol (for demo purposes)
 function generateRandomTokenSymbol() {
-  const symbols = ['TOK', 'COIN', 'SOL', 'ABC', 'XYZ', 'DEF', 'GHI', 'JKL']; // Add more as needed
-  return symbols[Math.floor(Math.random() * symbols.length)];
+    const symbols = ['TOK', 'COIN', 'SOL', 'ABC', 'XYZ', 'DEF', 'GHI', 'JKL'];
+    return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-// Function to generate a random amount (for demo purposes)
 function generateRandomAmount() {
-  return Math.floor(Math.random() * 1000) + 1; // Random number between 1 and 1000
+    return Math.floor(Math.random() * 1000) + 1; // Random number between 1 and 1000
 }
 
-// Function to simulate a delay
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+// Function to update contract details
+function updateContractDetails() {
+    const contractAddressElement = document.getElementById('contract-address');
+    const contractStatusElement = document.getElementById('contract-status');
 
-// --- Demo Interactions (for smart-contract-platform.html) ---
-let isDemoInitialized = false;
+    contractAddressElement.textContent = generateRandomSolanaAddress();
+    contractStatusElement.textContent = 'Active';
 
-// Initialize demo interactions only once
-if (!isDemoInitialized) {
-  initializeDemo();
-  isDemoInitialized = true;
-}
-
-function initializeDemo() {
-  // Get elements (assuming these IDs exist on your smart-contract-platform.html)
-  const templateSelection = document.getElementById('template-selection');
-  const configuration = document.getElementById('configuration');
-  const securityAudit = document.getElementById('security-audit');
-  const deployment = document.getElementById('deployment');
-  const management = document.getElementById('management');
-  const auditProgress = document.getElementById('audit-progress');
-  const auditMessage = document.getElementById('audit-message');
-  const connectWalletButton = document.getElementById('connect-wallet');
-  const deployButton = document.getElementById('deploy-button');
-  const deploymentMessage = document.getElementById('deployment-message');
-  const contractAddress = document.getElementById('contract-address');
-  const contractStatus = document.getElementById('contract-status');
-  const viewContractLink = document.getElementById('view-contract');
-
-  // 1. Template Selection
-  const templateCards = document.querySelectorAll('[data-template]');
-  if (templateSelection) {
-    templateSelection.addEventListener('click', (event) => {
-      const templateCard = event.target.closest('[data-template]');
-      if (templateCard) {
-        // Remove highlight from all cards
-        templateCards.forEach(card => card.classList.remove('ring-4', 'ring-blue-500'));
-
-        // Highlight selected template
-        templateCard.classList.add('ring-4', 'ring-blue-500');
-
-        const selectedTemplate = templateCard.dataset.template;
-        console.log('Selected template:', selectedTemplate);
-
-        // Update configuration section based on selected template (placeholder)
-        updateConfigurationFields(selectedTemplate);
-      }
-    });
-  }
-
-  // Function to update configuration fields based on selected template
-  function updateConfigurationFields(template) {
-    const tokenNameInput = document.getElementById('token-name');
-    const tokenSymbolInput = document.getElementById('token-symbol');
-    const tokenSupplyInput = document.getElementById('token-supply');
-    const aiSuggestion = document.querySelector('#configuration .italic');
-
-    // Reset fields
-    tokenNameInput.value = "";
-    tokenSymbolInput.value = "";
-    tokenSupplyInput.value = "";
-    aiSuggestion.textContent = "";
-
-    // Show/hide relevant fields based on template (placeholder logic)
-    if (template === 'token') {
-      tokenNameInput.parentElement.classList.remove('hidden');
-      tokenSymbolInput.parentElement.classList.remove('hidden');
-      tokenSupplyInput.parentElement.classList.remove('hidden');
-      tokenNameInput.placeholder = "Enter token name (e.g., MyToken)";
-      tokenSymbolInput.placeholder = "Enter token symbol (e.g., MTK)";
-      tokenSupplyInput.placeholder = "Enter token supply (e.g., 1000000)";
-    } else if (template === 'nft') {
-      tokenNameInput.parentElement.classList.remove('hidden');
-      tokenSymbolInput.parentElement.classList.remove('hidden');
-      tokenNameInput.placeholder = "Enter NFT name (e.g., MyNFT)";
-      tokenSymbolInput.placeholder = "Enter NFT symbol (e.g., NFT)";
-      tokenSupplyInput.parentElement.classList.add('hidden'); // Hide supply for NFTs
-    } else if (template === 'defi') {
-      tokenNameInput.parentElement.classList.remove('hidden');
-      tokenSymbolInput.parentElement.classList.remove('hidden');
-      tokenSupplyInput.parentElement.classList.remove('hidden');
-      tokenNameInput.placeholder = "Enter defi name (e.g., MyDefi)";
-      tokenSymbolInput.placeholder = "Enter defi symbol (e.g., MDEFI)";
-      tokenSupplyInput.placeholder = "Enter defi supply (e.g., 1000)";
-    } else if (template === 'dao') {
-      tokenNameInput.parentElement.classList.remove('hidden');
-      tokenSymbolInput.parentElement.classList.remove('hidden');
-      tokenNameInput.placeholder = "Enter DAO name (e.g., MyDAO)";
-      tokenSymbolInput.placeholder = "Enter DAO symbol (e.g., MDAO)";
-      tokenSupplyInput.parentElement.classList.add('hidden'); // Hide supply for DAO
-    } else {
-      // Hide all fields if no template is selected
-      tokenNameInput.parentElement.classList.add('hidden');
-      tokenSymbolInput.parentElement.classList.add('hidden');
-      tokenSupplyInput.parentElement.classList.add('hidden');
-    }
-  }
-
-  // 2. Configuration
-  if (configuration) {
-    configuration.addEventListener('input', (event) => {
-      const inputField = event.target;
-      const aiSuggestion = document.querySelector('#configuration .italic');
-
-      if (inputField.id === 'token-supply') {
-        const tokenSupply = inputField.value;
-
-        // Basic placeholder suggestion
-        if (tokenSupply > 1000000) {
-          aiSuggestion.textContent = "AI Suggestion: Consider a lower supply for scarcity.";
-        } else {
-          aiSuggestion.textContent = "";
-        }
-      } else if (inputField.id === 'token-name') {
-        const tokenName = inputField.value;
-
-        // Basic placeholder suggestion
-        if (tokenName.length > 0 && tokenName.length < 3) {
-          aiSuggestion.textContent = "AI Suggestion: Token name should be at least 3 characters.";
-        } else if (tokenName.length > 20) {
-          aiSuggestion.textContent = "AI Suggestion: Token name is too long, consider a shorter name.";
-        } else {
-          aiSuggestion.textContent = "";
-        }
-      } else if (inputField.id === 'token-symbol') {
-        const tokenSymbol = inputField.value;
-        if (tokenSymbol.length > 0 && tokenSymbol.length < 2) {
-          aiSuggestion.textContent = "AI Suggestion: Token symbol should be at least 2 characters.";
-        } else if (tokenSymbol.length > 5) {
-          aiSuggestion.textContent = "AI Suggestion: Token symbol is too long, consider a shorter symbol.";
-        } else {
-          aiSuggestion.textContent = "";
-        }
-      }
-    });
-  }
-
-  // 3. Security Audit (Placeholder Animation)
-  if (securityAudit) {
-    securityAudit.addEventListener("click", () => {
-      auditProgress.style.width = "0%"; // Reset
-      auditMessage.textContent = "Scanning for vulnerabilities...";
-      let width = 0;
-      const interval = setInterval(() => {
-        if (width >= 100) {
-          clearInterval(interval);
-          // Display mock security issues (placeholder)
-          auditMessage.textContent = "Security Audit Complete. No issues found.";
-          auditProgress.style.backgroundColor = "green";
-        } else {
-          width += 10;
-          auditProgress.style.width = width + "%";
-        }
-      }, 200); // Adjust animation speed here
-    });
-  }
-
-  // 4. Deployment (Placeholder)
-  if (connectWalletButton) {
-    connectWalletButton.addEventListener("click", () => {
-      // Simulate wallet connection
-      connectWalletButton.textContent = "Wallet Connected";
-      connectWalletButton.disabled = true;
-      deploymentMessage.textContent =
-        "Wallet connected successfully. Ready to deploy.";
-    });
-  }
-
-  if (deployButton) {
-    deployButton.addEventListener("click", async () => {
-      if (!connectWalletButton.disabled) {
-        deploymentMessage.textContent = "Please connect your wallet first.";
-        return;
-      }
-
-      // Simulate deployment process
-      deployButton.disabled = true;
-      deployButton.textContent = "Deploying...";
-      deploymentMessage.textContent =
-        "Deploying contract to the Solana blockchain...";
-
-      // Simulate a delay for deployment
-      await delay(3000); // Wait for 3 seconds
-
-      deployButton.remove();
-      deploymentMessage.textContent = "Contract deployed successfully!";
-
-      // Generate a random Solana address for the demo
-      const generatedAddress = generateRandomSolanaAddress();
-      contractAddress.textContent = generatedAddress;
-
-      contractStatus.textContent = "Active";
-      contractStatus.classList.remove("text-red-500");
-      contractStatus.classList.add("text-green-500");
-      management.classList.remove("hidden");
-
-      // Show the "View Contract Dashboard" link and update href
-      viewContractLink.classList.remove("hidden");
-      viewContractLink.href = "contract-management.html";
-    });
-  }
-}
-
-// --- Contract Management Page Interactions ---
-document.addEventListener("DOMContentLoaded", () => {
-  // Placeholder Data for Contract Management (replace with real data later)
-  const contractAddressElement = document.getElementById("contract-address");
-  const contractStatusElement = document.getElementById("contract-status");
-  const totalTransactionsElement =
-    document.getElementById("total-transactions");
-  const avgGasPriceElement = document.getElementById("avg-gas-price");
-  const uniqueInteractorsElement =
-    document.getElementById("unique-interactors");
-  const solanaPriceElement = document.getElementById("solana-price");
-
-  if (contractAddressElement) {
-    contractAddressElement.textContent =
-      "5h3AJ8oqWTL8sBySt2ZXBCGqPV3jz9bLfyJAzgP3wibn"; // Valid Solana address
-  }
-  if (contractStatusElement) {
-    contractStatusElement.textContent = "Active";
-    contractStatusElement.classList.add("text-green-500");
-  }
-
-  // Chart.js for Transaction Volume Tracking
-  const transactionCanvas = document.getElementById("transactionChart");
-  if (transactionCanvas) {
-    const transactionChart = new Chart(transactionCanvas, {
-      type: "line",
-      data: {
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        datasets: [
-          {
-            label: "Transaction Volume",
-            data: [120, 150, 80, 200, 160, 250, 300], // Placeholder data
-            backgroundColor: "rgba(54, 162, 235, 0.5)",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 2,
-            tension: 0.4,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-        plugins: {
-          legend: {
-            labels: {
-              color: "white",
-            },
-          },
-        },
-        layout: {
-          padding: {
-            left: 10,
-            right: 10,
-            top: 10,
-            bottom: 10,
-          },
-        },
-      },
-    });
-
-    // Function to add new data to the chart
-    function addData(chart, label, data) {
-      chart.data.labels.push(label);
-      chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-      });
-      chart.update();
-    }
-
-    // Simulate adding new data to the chart every 5 seconds
     setInterval(() => {
-      const newDataPoint = Math.floor(Math.random() * 100) + 50; // Generate random data between 50 and 150
-      const newLabel = new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-      addData(transactionChart, newLabel, newDataPoint);
+        contractStatusElement.textContent = Math.random() > 0.8 ? 'Inactive' : 'Active';
+        contractStatusElement.className = contractStatusElement.textContent === 'Active' ? 'text-green-500' : 'text-red-500';
+    }, 30000);
+}
 
-      // Keep only the last 7 data points
-      if (transactionChart.data.labels.length > 7) {
-        transactionChart.data.labels.shift();
-        transactionChart.data.datasets.forEach((dataset) => {
-          dataset.data.shift();
+// Function to update live bundles
+function updateLiveBundles() {
+    const liveBundlesElement = document.getElementById('live-bundles');
+
+    setInterval(() => {
+        const newBundle = {
+            id: Math.floor(Math.random() * 1000),
+            transactions: Math.floor(Math.random() * 10) + 1,
+        };
+
+        const bundles = Array.from(liveBundlesElement.children).map(li => {
+            const [id, transactions] = li.textContent.match(/\d+/g);
+            return { id: parseInt(id), transactions: parseInt(transactions) };
         });
-      }
 
-      transactionChart.update();
-    }, 5000); // 5 seconds interval
+        const updatedBundles = [newBundle, ...bundles].slice(0, 5);
 
-    // Update the following metrics with simulated data
-    if (totalTransactionsElement) {
-      totalTransactionsElement.textContent = "1,234";
-    }
-    if (avgGasPriceElement) {
-      avgGasPriceElement.textContent = "50 Gwei";
-    }
-    if (uniqueInteractorsElement) {
-      uniqueInteractorsElement.textContent = "456";
-    }
-  }
+        liveBundlesElement.innerHTML = updatedBundles.map(bundle => `
+            <li>Bundle #${bundle.id}: ${bundle.transactions} Transactions</li>
+        `).join('');
+    }, 10000);
+}
 
-  // Function to simulate contract interactions
-  function simulateContractInteraction() {
+// Function to update holdings
+function updateHoldings() {
+    const devHoldingsElement = document.getElementById('dev-holdings');
+    const insiderHoldingsElement = document.getElementById('insider-holdings');
+    const holdersElement = document.getElementById('holders');
+
+    let devHoldings = 10;
+    let insiderHoldings = 5;
+    let holders = 1234;
+
+    setInterval(() => {
+        devHoldings = Math.max(0, devHoldings + (Math.random() - 0.5) * 2);
+        insiderHoldings = Math.max(0, insiderHoldings + (Math.random() - 0.5) * 1);
+        holders = Math.max(0, holders + Math.floor((Math.random() - 0.5) * 10));
+
+        devHoldingsElement.textContent = devHoldings.toFixed(2) + '%';
+        insiderHoldingsElement.textContent = insiderHoldings.toFixed(2) + '%';
+        holdersElement.textContent = holders;
+    }, 20000);
+}
+
+// Function to update volume
+function updateVolume() {
+    const volumeElement = document.getElementById('volume');
+    let volume = 500000;
+
+    setInterval(() => {
+        volume = Math.max(0, volume + (Math.random() - 0.5) * 50000);
+        volumeElement.textContent = '$' + volume.toFixed(0);
+    }, 15000);
+}
+
+// Function to update snipers
+function updateSnipers() {
+    const snipersElement = document.getElementById('snipers');
+
+    setInterval(() => {
+        const newSniper = {
+            address: generateRandomSolanaAddress(),
+            amount: (Math.random() * 100).toFixed(2),
+        };
+
+        const snipers = Array.from(snipersElement.children).map(li => {
+            const [address, amount] = li.textContent.split(':');
+            return { address, amount: parseFloat(amount) };
+        });
+
+        const updatedSnipers = [newSniper, ...snipers].slice(0, 3); // Keep only last 3 snipers
+
+        snipersElement.innerHTML = updatedSnipers.map(sniper => `
+            <li>${sniper.address}: ${sniper.amount} SOL</li>
+        `).join('');
+    }, 25000);
+}
+
+// Function to update sniper actions
+function updateSniperActions() {
+    const sniperActionsElement = document.getElementById('sniper-actions');
+
+    setInterval(() => {
+        const actionType = Math.random() > 0.5 ? 'sell' : 'transfer';
+        const newAction = {
+            address: generateRandomSolanaAddress(),
+            amount: Math.floor(Math.random() * 50000),
+            type: actionType,
+            to: actionType === 'transfer' ? generateRandomSolanaAddress() : null,
+        };
+
+        const actions = Array.from(sniperActionsElement.children).map(li => {
+            const parts = li.textContent.split(':');
+            const address = parts[0];
+            const amountAndType = parts[1].trim().split(' ');
+            const amount = parseFloat(amountAndType[0]);
+            const type = amountAndType[1];
+            const to = type === 'transfer' && parts.length > 2 ? parts[2].split('->')[1].trim() : null;
+            return { address, amount, type, to };
+        });
+
+        const updatedActions = [newAction, ...actions].slice(0, 5); // Keep only last 5 actions
+
+        sniperActionsElement.innerHTML = updatedActions.map(action => `
+            <li>${action.address}: ${action.amount} Tokens (${action.type})${action.to ? ' -> ' + action.to : ''}</li>
+        `).join('');
+    }, 15000);
+}
+
+// Function to simulate contract interactions in SOL
+function simulateContractInteraction() {
     const interactionsList = document.getElementById("interactions-list");
-
-    // Check if interactionsList exists before proceeding
-    if (!interactionsList) {
-      console.error("Element with ID 'interactions-list' not found.");
-      return; // Exit the function if the element does not exist
-    }
-
-    const interactions = [
-      {
-        type: "Transfer",
-        from: generateRandomSolanaAddress(),
-        to: generateRandomSolanaAddress(),
-        amount: `${generateRandomAmount()} ${generateRandomTokenSymbol()}`,
-      },
-      {
-        type: "Mint",
-        to: generateRandomSolanaAddress(),
-        amount: `${generateRandomAmount()} ${generateRandomTokenSymbol()}`,
-      },
-      {
-        type: "Transfer",
-        from: generateRandomSolanaAddress(),
-        to: generateRandomSolanaAddress(),
-        amount: `${generateRandomAmount()} ${generateRandomTokenSymbol()}`,
-      },
-      // Add more interaction types as needed
-    ];
-
-    const newInteraction =
-      interactions[Math.floor(Math.random() * interactions.length)];
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `
-        <div class="bg-gray-800 p-4 rounded-lg mb-2 flex items-center justify-between">
-          <div>
-            <p class="font-semibold">Interaction: <span class="font-mono">${
-              newInteraction.type
-            }</span></p>
-            ${
-              newInteraction.from
-                ? `<p class="text-sm">From: <span class="font-mono">${newInteraction.from}</span></p>`
-                : ""
-            }
-            <p class="text-sm">To: <span class="font-mono">${
-              newInteraction.to
-            }</span></p>
-            <p class="text-sm">Amount: <span class="font-mono">${
-              newInteraction.amount
-            }</span></p>
-          </div>
-          <span class="text-xs text-gray-500">Just now</span>
-        </div>
-      `;
-
-    interactionsList.prepend(listItem); // Add to the top of the list
-
-    // Keep only the last 5 interactions
-    if (interactionsList.children.length > 5) {
-      interactionsList.lastChild.remove();
-    }
+  
+    setInterval(() => {
+        const newInteraction = {
+            type: Math.random() > 0.5 ? "Buy" : "Sell",
+            from: generateRandomSolanaAddress(),
+            to: generateRandomSolanaAddress(),
+            amount: (Math.random() * 5).toFixed(2) // Simulate amounts up to 5 SOL
+        };
+  
+        const listItem = document.createElement("li");
+        listItem.className = "bg-gray-700 p-4 rounded-lg mb-2";
+        listItem.innerHTML = `
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="font-semibold text-gray-300">Type: <span class="font-mono text-blue-400">${newInteraction.type}</span></p>
+                    <p class="text-sm text-gray-400">From: <span class="font-mono">${newInteraction.from}</span></p>
+                    <p class="text-sm text-gray-400">To: <span class="font-mono">${newInteraction.to}</span></p>
+                    <p class="text-sm text-gray-400">Amount: <span class="font-mono text-green-400">${newInteraction.amount} SOL</span></p>
+                </div>
+                <span class="text-xs text-gray-500">Just now</span>
+            </div>
+        `;
+  
+        interactionsList.prepend(listItem);
+  
+        if (interactionsList.children.length > 5) {
+            interactionsList.lastChild.remove();
+        }
+    }, 10000);
   }
 
-  // Add a new simulated interaction every 10 seconds
-  setInterval(simulateContractInteraction, 10000);
+// Initialize the chart
+function initializeChart() {
+    const transactionCanvas = document.getElementById('transactionChart');
+    if (!transactionCanvas) return;
 
-  // Placeholder data for bribe updates (replace with real data when available)
-  const bribeUpdates = [
-    { platform: "Platform X", amount: "1.2 SOL", time: "2 mins ago" },
-    { platform: "Platform Y", amount: "0.8 SOL", time: "5 mins ago" },
-    { platform: "Platform Z", amount: "2.5 SOL", time: "10 mins ago" },
-    { platform: "Platform A", amount: "0.5 SOL", time: "15 mins ago" },
-    { platform: "Platform B", amount: "1.8 SOL", time: "20 mins ago" },
-  ];
+    const transactionChart = new Chart(transactionCanvas, {
+        type: 'line',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Transaction Volume',
+                data: [120, 150, 80, 200, 160, 250, 300],
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                tension: 0.4,
+            }],
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true },
+            },
+            plugins: {
+                legend: { labels: { color: 'white' } },
+            },
+            layout: {
+                padding: { left: 10, right: 10, top: 10, bottom: 10 },
+            },
+        },
+    });
 
-  let currentBribeIndex = 0;
+    setInterval(() => {
+        const newDataPoint = Math.floor(Math.random() * 100) + 50;
+        const newLabel = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-  function updateBribeUpdates() {
-    const bribeUpdatesDiv = document.getElementById("bribe-updates");
+        transactionChart.data.labels.push(newLabel);
+        transactionChart.data.datasets[0].data.push(newDataPoint);
 
-    // Check if bribeUpdatesDiv exists before proceeding
-    if (!bribeUpdatesDiv) {
-      console.error("Element with ID 'bribe-updates' not found.");
-      return; // Exit the function if the element does not exist
-    }
+        if (transactionChart.data.labels.length > 7) {
+            transactionChart.data.labels.shift();
+            transactionChart.data.datasets[0].data.shift();
+        }
 
-    const newBribe = bribeUpdates[currentBribeIndex];
+        transactionChart.update();
+    }, 5000);
+}
 
-    const bribeItem = document.createElement("div");
-    bribeItem.className =
-      "flex justify-between items-center bg-gray-800 p-4 rounded-lg mb-2";
-    bribeItem.innerHTML = `
-        <p><span class="font-semibold">${newBribe.platform}</span>: ${newBribe.amount}</p>
-        <span class="text-xs text-gray-500">${newBribe.time}</span>
-      `;
+// Placeholder for AI function simulations
+const namegenResult = document.getElementById('namegen-result');
+const logoGenResult = document.getElementById('logo-gen-result');
+const tokenomicsResult = document.getElementById('tokenomics-result');
+const vulnerabilityScanResult = document.getElementById('vulnerability-scan-result');
+const rugPullDetectResult = document.getElementById('rug-pull-detect-result');
+const trendIdentifyResult = document.getElementById('trend-identify-result');
+const sentimentAnalyzeResult = document.getElementById('sentiment-analyze-result');
+const pricePredictResult = document.getElementById('price-predict-result');
+const socialMediaManageResult = document.getElementById('social-media-manage-result');
 
-    bribeUpdatesDiv.prepend(bribeItem); // Add to the top
+// Placeholder for AI function simulations
+document.getElementById('namegen-button').addEventListener('click', () => {
+    namegenResult.textContent = 'ExampleCoin (ECO) - (Demo)';
+});
 
-    // Keep only the last 5 updates
-    if (bribeUpdatesDiv.children.length > 5) {
-      bribeUpdatesDiv.lastChild.remove();
-    }
+document.getElementById('logo-gen-button').addEventListener('click', () => {
+    logoGenResult.innerHTML = '<img src="placeholder-logo.png" alt="Generated Logo" class="w-32 h-32">';
+});
 
-    currentBribeIndex = (currentBribeIndex + 1) % bribeUpdates.length;
-  }
+document.getElementById('tokenomics-button').addEventListener('click', () => {
+    tokenomicsResult.textContent = 'Total Supply: 1,000,000,000 ECO, Initial Burn: 20%, Tax: 5% on each transaction - (Demo)';
+});
 
-  // Initial update and set interval for updates
-  if (document.getElementById("bribe-updates")) {
-    updateBribeUpdates();
-    setInterval(updateBribeUpdates, 5000); // Update every 5 seconds
-  }
+document.getElementById('vulnerability-scan-button').addEventListener('click', () => {
+    vulnerabilityScanResult.textContent = 'No vulnerabilities found (Demo).';
+});
 
-  // Fetch and display the current Solana price
-  async function fetchSolanaPrice() {
-    const solanaPriceElement = document.getElementById('solana-price');
-    if (solanaPriceElement) {
-      try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd');
-        const data = await response.json();
-        const solanaPrice = data.solana.usd;
-        solanaPriceElement.textContent = `Current Solana Price: $${solanaPrice}`;
-      } catch (error) {
-        console.error('Error fetching Solana price:', error);
-        solanaPriceElement.textContent = 'Failed to fetch Solana price';
-      }
-    }
-  }
+document.getElementById('rug-pull-detect-button').addEventListener('click', () => {
+    rugPullDetectResult.textContent = 'Low risk of rug pull (Demo).';
+});
 
-  // Update Solana price every 60 seconds
-  setInterval(fetchSolanaPrice, 60000);
+document.getElementById('trend-identify-button').addEventListener('click', () => {
+    trendIdentifyResult.textContent = 'Current trends: Community-driven, NFTs, Metaverse - (Demo)';
+});
 
-  // Initial fetch on page load
-  fetchSolanaPrice();
+document.getElementById('sentiment-analyze-button').addEventListener('click', () => {
+    sentimentAnalyzeResult.textContent = 'Sentiment: Positive (Demo)';
+});
+
+document.getElementById('price-predict-button').addEventListener('click', () => {
+    pricePredictResult.textContent = 'Predicted price in 24h: $0.0012 (Demo)';
+});
+
+document.getElementById('social-media-manage-button').addEventListener('click', () => {
+    socialMediaManageResult.textContent = 'Managing Twitter and Telegram... (Demo)';
+});
+
+// DexScreener Update (simulated)
+const dexscreenerUpdateInput = document.getElementById('dexscreener-update-input');
+const updateDexscreenerBtn = document.getElementById('update-dexscreener-btn');
+const dexscreenerUpdateResult = document.getElementById('dexscreener-update-result');
+
+if (updateDexscreenerBtn) {
+    updateDexscreenerBtn.addEventListener('click', () => {
+        const newLink = dexscreenerUpdateInput.value;
+        if (newLink) {
+            dexscreenerUpdateResult.textContent = `DexScreener link updated to: ${newLink}`;
+            dexscreenerUpdateInput.value = ''; // Clear input
+        } else {
+            dexscreenerUpdateResult.textContent = 'Please enter a DexScreener link.';
+        }
+    });
+}
+
+// Call the functions to initialize the dynamic elements
+document.addEventListener('DOMContentLoaded', () => {
+    updateContractDetails();
+    updateLiveBundles();
+    updateHoldings();
+    updateVolume();
+    updateSnipers();
+    updateSniperActions();
+    simulateContractInteraction();
+    initializeChart();
 });

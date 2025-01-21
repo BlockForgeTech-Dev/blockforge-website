@@ -1,121 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contract Management | BlockForge Technologies</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Management Dashboard | BlockForge Technologies</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-900 text-white">
-<header class="bg-black py-6">
-    <div class="container mx-auto flex justify-between items-center px-8">
-      <a href="/" class="text-2xl font-bold text-white flex items-center">
-        <img src="images/logo.svg" alt="BlockForge Logo" class="h-12 mr-3">
-        BlockForge
-      </a>
-      <nav>
-        <ul class="flex space-x-8">
-          <li><a href="/#namegenai" class="nav-link text-white hover:text-blue-300">NameGenAI</a></li>
-          <li><a href="/#smart-contract-platform" class="nav-link text-white hover:text-blue-300">Smart Contract Platform</a></li>
-          <li><a href="ai-contracts.html" class="nav-link text-white hover:text-blue-300">AI Contracts</a></li>
-          <li><a href="newsletter.html" class="nav-link text-white hover:text-blue-300">Newsletter</a></li>
-          <li><a href="about.html" class="nav-link text-white hover:text-blue-300">About</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="py-32">
-      <div class="container mx-auto px-8">
-        <div class="text-center mb-8">
-            <p class="text-lg text-blue-500" id="solana-price">Fetching Solana Price...</p>
-        </div>
-        <h1 class="text-4xl font-bold text-center mb-8">Contract Management Dashboard</h1>
-        <div class="bg-gray-800 rounded-lg p-8 shadow-lg">
-          <h2 class="text-2xl font-bold mb-4">Contract Details</h2>
-          <p class="text-gray-300">Contract Address: <span id="contract-address" class="font-mono text-green-400"></span> (Demo)</p>
-          <p class="text-gray-300">Status: <span id="contract-status" class="text-green-500">Active</span> (Demo)</p>
-          <p class="text-gray-300 mt-4 italic">Note: This is a demo. The data displayed is simulated and not connected to a live blockchain.</p>
-
-          <div class="mt-8">
-            <h3 class="text-2xl font-bold mb-4">Real-time Contract Interactions</h3>
-            <div class="bg-gray-700 rounded-lg p-4">
-              <ul id="interactions-list" class="text-gray-300 space-y-2">
+<body class="bg-gray-900 text-white font-sans">
+    <header class="bg-black py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <a href="/" class="text-2xl font-bold text-white flex items-center">
+                <img src="images/logo.svg" alt="BlockForge Logo" class="h-10 w-10 mr-2">
+                BlockForge
+            </a>
+            <nav class="w-full">
+                <ul class="flex flex-wrap justify-end space-x-4 md:space-x-8">
+                    <li><a href="/#namegenai" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">NameGenAI</a></li>
+                    <li><a href="/#smart-contract-platform" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">Smart Contract Platform</a></li>
+                    <li><a href="ai-contracts.html" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">AI Contracts</a></li>
+                    <li><a href="newsletter.html" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">Newsletter</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">About</a></li>
                 </ul>
-            </div>
-          </div>
+            </nav>
+        </div>
+    </header>
 
-          <div class="mt-8">
-            <h3 class="text-2xl font-bold mb-4">Transaction Volume Tracking</h3>
-            <div class="bg-gray-700 rounded-lg p-4">
-                <canvas id="transactionChart" width="400" height="150" class="w-full"></canvas>
-            </div>
-          </div>
+    <main>
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl font-bold text-center mb-2">AI Meme Coin Management Dashboard (Demo)</h1>
+                <p class="text-gray-500 text-center mb-8 italic">Note: Data is simulated for demonstration purposes. Full system coming Q2 2025.</p>
+    
+                <!-- Contract Details, Live Bundles, Holdings -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Contract Details -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-xl font-bold mb-4">Contract Details</h2>
+                        <p class="text-gray-300 text-sm">Contract Address: <span id="contract-address" class="font-mono text-green-400"></span></p>
+                        <p class="text-gray-300 text-sm">Status: <span id="contract-status" class="text-green-500"></span></p>
+                    </div>
+    
+                    <!-- Live Bundles Tracker -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-xl font-bold mb-4">Live Bundles Tracker</h2>
+                        <ul id="live-bundles" class="text-gray-300 space-y-2 text-sm">
+                            <!-- Live bundles will be added here -->
+                        </ul>
+                    </div>
+    
+                    <!-- Holdings -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-xl font-bold mb-4">Holdings</h2>
+                        <p class="text-gray-300 text-sm">Dev Holdings: <span id="dev-holdings"></span></p>
+                        <p class="text-gray-300 text-sm">Insider Holdings: <span id="insider-holdings"></span></p>
+                        <p class="text-gray-300 text-sm">Total Holders: <span id="holders"></span></p>
+                    </div>
+                </div>
+    
+                <!-- Volume, Snipers, Sniper Actions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Volume -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-xl font-bold mb-4">Volume (24h)</h2>
+                        <p id="volume" class="text-gray-300 text-sm"></p>
+                    </div>
+    
+                    <!-- Snipers -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-xl font-bold mb-4">Snipers</h2>
+                        <ul id="snipers" class="text-gray-300 space-y-2 text-sm">
+                            <!-- Snipers will be added here -->
+                        </ul>
+                    </div>
+    
+                    <!-- Sniper Actions -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg col-span-1 md:col-span-2 lg:col-span-1">
+                        <h2 class="text-xl font-bold mb-4">Sniper Actions</h2>
+                        <ul id="sniper-actions" class="text-gray-300 space-y-2 text-sm">
+                            <!-- Sniper actions will be added here -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- AI Management Tools -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg mb-8">
+                    <h2 class="text-2xl font-bold mb-4">AI Management Tools</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- AI-Powered Whitepaper Generator -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI-Powered Whitepaper Generator</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Generate a basic whitepaper for your meme coin project.</p>
+                            <button id="whitepaper-gen-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generate Whitepaper</button>
+                            <div id="whitepaper-gen-result" class="mt-2 text-sm"></div>
+                        </div>
 
-          <div class="mt-8">
-            <h3 class="text-2xl font-bold mb-4">Performance Analytics</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="bg-gray-700 p-4 rounded-lg">
-                <p class="text-gray-300">Total Transactions</p>
-                <p id="total-transactions" class="text-3xl font-bold text-blue-400"></p>
-              </div>
-              <div class="bg-gray-700 p-4 rounded-lg">
-                <p class="text-gray-300">Average Gas Price</p>
-                <p id="avg-gas-price" class="text-3xl font-bold text-blue-400"></p>
-              </div>
-              <div class="bg-gray-700 p-4 rounded-lg">
-                <p class="text-gray-300">Unique Interactors</p>
-                <p id="unique-interactors" class="text-3xl font-bold text-blue-400"></p>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8">
-            <h3 class="text-2xl font-bold mb-4">Live Bribe Updates (Demo)</h3>
-            <div id="bribe-updates" class="bg-gray-700 rounded-lg p-4">
-            </div>
-        </div>
-        </div>
-      </div>
-    </section>
-  </main>
+                        <!-- AI Smart Contract Auditor -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI Smart Contract Auditor</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Scan your smart contract for potential security issues.</p>
+                            <input type="text" id="contract-address-audit-input" placeholder="Enter contract address" class="w-full bg-gray-700 text-white p-2 rounded-l text-sm">
+                            <button id="vulnerability-scan-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r mt-2">Scan</button>
+                            <div id="vulnerability-scan-result" class="mt-2 text-sm"></div>
+                        </div>
 
-  <footer class="bg-black py-12">
-    <div class="container mx-auto px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <h3 class="text-xl font-bold mb-4">BlockForge</h3>
-          <p>Pioneering the future of blockchain and AI technology.</p>
+                        <!-- AI-Driven Tokenomics Optimization -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI-Driven Tokenomics Optimization</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Refine your tokenomics model using AI.</p>
+                            <button id="tokenomics-optimize-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Optimize Tokenomics</button>
+                            <div id="tokenomics-optimize-result" class="mt-2 text-sm"></div>
+                        </div>
+
+                        <!-- AI-Powered Marketing Campaign Generator -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI-Powered Marketing Campaign Generator</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Create and optimize marketing campaigns for your meme coin.</p>
+                            <button id="marketing-campaign-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generate Campaign</button>
+                            <div id="marketing-campaign-result" class="mt-2 text-sm"></div>
+                        </div>
+
+                        <!-- AI-Driven Community Sentiment Monitor -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI-Driven Community Sentiment Monitor</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Analyze community sentiment across multiple platforms.</p>
+                            <button id="sentiment-monitor-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Monitor Sentiment</button>
+                            <div id="sentiment-monitor-result" class="mt-2 text-sm"></div>
+                        </div>
+
+                        <!-- AI-Powered Meme Generator & Curator -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI-Powered Meme Generator & Curator</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Generate and curate memes related to your project.</p>
+                            <button id="meme-gen-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generate Meme</button>
+                            <div id="meme-gen-result" class="mt-2 text-sm"></div>
+                        </div>
+
+                        <!-- AI-Powered On-Chain Analysis Dashboard -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI-Powered On-Chain Analysis Dashboard</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Get a comprehensive view of on-chain data, analyzed by AI.</p>
+                            <button id="on-chain-analysis-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View On-Chain Analysis</button>
+                            <div id="on-chain-analysis-result" class="mt-2 text-sm"></div>
+                        </div>
+
+                        <!-- AI-Driven Competitor Analysis -->
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold mb-2">AI-Driven Competitor Analysis</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Analyze competitor meme coin projects.</p>
+                            <button id="competitor-analysis-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Analyze Competitors</button>
+                            <div id="competitor-analysis-result" class="mt-2 text-sm"></div>
+                        </div>
+                        <!-- DexScreener Update -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">DexScreener Update</h3>
+                            <p class="text-gray-400 mb-2 text-sm">Update your DexScreener information.</p>
+                            <div class="flex items-center mb-2">
+                                <input type="text" id="dexscreener-update-input" placeholder="Enter new DexScreener link" class="w-full bg-gray-700 text-white p-2 rounded-l text-sm">
+                                <button id="update-dexscreener-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r text-sm">Update</button>
+                            </div>
+                            <p id="dexscreener-update-result" class="mt-2 text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Real-time Contract Interactions and Transaction Chart -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <!-- Real-time Contract Interactions -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg" style="overflow-y: auto; max-height: 300px;">
+                        <h2 class="text-xl font-bold mb-4">Real-time Contract Interactions</h2>
+                        <ul id="interactions-list" class="text-gray-300 space-y-2">
+                            <!-- Real-time interactions will be added here -->
+                        </ul>
+                    </div>
+                    <!-- Transaction Chart -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+                        <h2 class="text-xl font-bold mb-4">Transaction Volume Tracking</h2>
+                        <canvas id="transactionChart" width="400" height="150" class="w-full"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6">BlockForge</h3>
+                    <p class="opacity-80 text-sm md:text-base">Pioneering the future of blockchain and AI technology.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4">Products</h3>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="/#namegenai" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">NameGenAI</a></li>
+                        <li><a href="/#smart-contract-platform" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">Smart Contract Platform</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4">Connect</h3>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="https://twitter.com/blockforge_tech" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">Twitter</a></li>
+                        <li><a href="https://t.me/BlockForge" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">Telegram</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4">Legal</h3>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="privacy.html" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400 transition duration-300 text-sm md:text-base">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 md:pt-8 mt-6 md:mt-8">
+                <p class="text-center text-gray-500 text-xs md:text-sm">© 2025 BlockForge Technologies. All rights reserved.</p>
+            </div>
         </div>
-        <div>
-          <h3 class="text-xl font-bold mb-4">Products</h3>
-          <ul class="space-y-2">
-            <li><a href="/#namegenai" class="hover:text-blue-300">NameGenAI</a></li>
-            <li><a href="/#smart-contract-platform" class="hover:text-blue-300">Smart Contract Platform</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold mb-4">Connect</h3>
-          <ul class="space-y-2">
-            <li><a href="https://twitter.com/blockforge_tech" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">BlockForge Twitter</a></li>
-            <li><a href="https://t.me/BlockForge" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">Telegram</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold mb-4">Legal</h3>
-          <ul class="space-y-2">
-            <li><a href="privacy.html" class="hover:text-blue-300">Privacy Policy</a></li>
-            <li><a href="terms.html" class="hover:text-blue-300">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 pt-8">
-        <p class="text-center">© 2025 BlockForge Technologies. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  <script src="scripts.js"></script>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
