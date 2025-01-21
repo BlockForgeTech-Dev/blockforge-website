@@ -11,10 +11,11 @@
     }
     .card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
     .card:hover {
       transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
     .solana-highlight {
       background: linear-gradient(to right, #9945FF, #14F195);
@@ -37,19 +38,24 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .active {
+      color: #6c63ff; /* Or any other style you prefer for the active link */
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
   <header class="bg-black py-6">
     <div class="container mx-auto flex justify-between items-center px-8">
-      <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+      <a href="/" class="text-2xl font-bold text-white flex items-center">
         <img src="images/logo.svg" alt="BlockForge Logo" class="h-12 mr-3">
         BlockForge
       </a>
       <nav>
         <ul class="flex space-x-8">
-          <li><a href="index.html" class="text-white hover:text-blue-300">Home</a></li>
-          <li><a href="newsletter.html" class="text-white hover:text-blue-300">Get Early Access</a></li>
+          <li><a href="/#namegenai" class="nav-link text-white hover:text-blue-300">NameGenAI</a></li>
+          <li><a href="/#smart-contract-platform" class="nav-link text-white hover:text-blue-300 active">Smart Contract Platform</a></li>
+          <li><a href="newsletter.html" class="nav-link text-white hover:text-blue-300">Newsletter</a></li>
+          <li><a href="about.html" class="nav-link text-white hover:text-blue-300">About</a></li>
         </ul>
       </nav>
     </div>
@@ -57,7 +63,6 @@
 
   <main>
     <section class="bg-gradient py-32 relative overflow-hidden">
-      <div class="absolute inset-0 bg-black opacity-20"></div>
       <div class="container mx-auto px-8 text-center relative z-10">
         <h1 class="text-5xl font-bold mb-6 animate-float">AI-Powered Smart Contract Platform for <span class="solana-highlight">Solana</span></h1>
         <p class="text-xl mb-12 dynamic-text">Simplifying blockchain development with intelligent, user-friendly tools</p>
@@ -65,11 +70,11 @@
       </div>
     </section>
 
-    <section id="workflow" class="py-32 bg-gray-800">
+    <section id="workflow" class="py-32">
       <div class="container mx-auto px-8">
         <h2 class="text-4xl font-bold text-center mb-16">Core Platform Workflow</h2>
         <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
-          <div class="bg-gray-700 p-8 rounded-lg card">
+          <div class="bg-gray-800 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">1. Template Selection</h3>
             <ul class="list-disc list-inside space-y-2 text-gray-300">
               <li>Token Contract</li>
@@ -78,12 +83,12 @@
               <li>DAO Governance</li>
             </ul>
           </div>
-          <div class="bg-gray-700 p-8 rounded-lg card">
+          <div class="bg-gray-800 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">2. AI-Assisted Configuration</h3>
             <p>Intelligent parameter validation with real-time AI suggestions and warnings.</p>
             <p class="mt-4 italic text-gray-400">Example: "Token supply is very high. Are you sure?"</p>
           </div>
-          <div class="bg-gray-700 p-8 rounded-lg card">
+          <div class="bg-gray-800 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">3. Security Audit</h3>
             <p>AI-powered vulnerability scanning for:</p>
             <ul class="list-disc list-inside space-y-2 text-gray-300 mt-4">
@@ -92,7 +97,7 @@
               <li>Comprehensive security risk assessment</li>
             </ul>
           </div>
-          <div class="bg-gray-700 p-8 rounded-lg card">
+          <div class="bg-gray-800 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">4. Blockchain Deployment</h3>
             <p>Deploy directly to Solana RPC:</p>
             <ul class="list-disc list-inside space-y-2 text-gray-300 mt-4">
@@ -101,7 +106,7 @@
               <li>Low-cost transaction fees</li>
             </ul>
           </div>
-          <div class="bg-gray-700 p-8 rounded-lg card">
+          <div class="bg-gray-800 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">5. Contract Management</h3>
             <p>Post-deployment monitoring dashboard:</p>
             <ul class="list-disc list-inside space-y-2 text-gray-300 mt-4">
@@ -114,19 +119,19 @@
       </div>
     </section>
 
-    <section id="solana-integration" class="py-32">
+    <section id="solana-integration" class="py-32 bg-gray-800">
       <div class="container mx-auto px-8">
         <h2 class="text-4xl font-bold text-center mb-16 solana-highlight">Solana Integration Advantages</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-gray-800 p-8 rounded-lg card">
+          <div class="bg-gray-700 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">High Throughput</h3>
             <p>Solana handles thousands of transactions per second, ensuring smooth contract deployment and execution.</p>
           </div>
-          <div class="bg-gray-800 p-8 rounded-lg card">
+          <div class="bg-gray-700 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">Low Fees</h3>
             <p>Cost-effective deployment compared to other blockchain platforms, making development more accessible.</p>
           </div>
-          <div class="bg-gray-800 p-8 rounded-lg card">
+          <div class="bg-gray-700 p-8 rounded-lg card">
             <h3 class="text-2xl font-bold mb-4">Rust-Based Programs</h3>
             <p>Leverage Solana's native program architecture with Rust-based BPF (Berkley Packet Filter) programs.</p>
           </div>
@@ -148,15 +153,15 @@
         <div class="max-w-3xl mx-auto">
           <p class="text-xl mb-12">We're building more than a platform - we're creating an ecosystem for blockchain innovation</p>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+            <div class = "card bg-gray-800 p-8 rounded-lg">
               <h3 class="text-2xl font-semibold mb-4">AI Optimization</h3>
               <p>Intelligent program optimization for maximum efficiency</p>
             </div>
-            <div>
+            <div class = "card bg-gray-800 p-8 rounded-lg">
               <h3 class="text-2xl font-semibold mb-4">Cross-Chain Deploy</h3>
               <p>Unified interface for multi-blockchain deployment</p>
             </div>
-            <div>
+            <div class = "card bg-gray-800 p-8 rounded-lg">
               <h3 class="text-2xl font-semibold mb-4">Education Tools</h3>
               <p>Interactive guides for blockchain development</p>
             </div>
@@ -165,11 +170,11 @@
       </div>
     </section>
 
-    <section id="launch" class="bg-gray-800 py-32">
+    <section id="launch" class="py-32">
       <div class="container mx-auto px-8 text-center">
         <h2 class="text-4xl font-bold mb-6">Coming in Q2 2025</h2>
         <p class="text-xl mb-12">Be the first to revolutionize blockchain development</p>
-        <a href="newsletter.html" class="bg-white text-black px-6 py-3 rounded-lg hover:bg-blue-100 transition duration-300">
+        <a href="newsletter.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
           Join Waitlist
         </a>
       </div>
@@ -177,11 +182,36 @@
   </main>
 
   <footer class="bg-black py-12">
-    <div class="container mx-auto px-8 text-center">
-      <p>&copy; 2024 BlockForge Technologies. All rights reserved.</p>
-      <div class="mt-4 space-x-4">
-        <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
-        <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+    <div class="container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">BlockForge</h3>
+          <p>Pioneering the future of blockchain and AI technology.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Products</h3>
+          <ul class="space-y-2">
+            <li><a href="/#namegenai" class="hover:text-blue-300">NameGenAI</a></li>
+            <li><a href="/#smart-contract-platform" class="hover:text-blue-300">Smart Contract Platform</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Connect</h3>
+          <ul class="space-y-2">
+            <li><a href="https://twitter.com/blockforge_tech" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">BlockForge Twitter</a></li>
+            <li><a href="https://t.me/BlockForge" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">Telegram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="privacy.html" class="hover:text-blue-300">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-blue-300">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-center">© 2025 BlockForge Technologies. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -193,6 +223,22 @@
       setTimeout(() => {
         dynamicText.classList.add('visible');
       }, 300);
+    });
+
+    // Dynamic navigation highlighting
+    window.addEventListener('load', () => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname;
+
+        navLinks.forEach(link => {
+            // Remove active class from all links
+            link.classList.remove('active');
+
+            // Check if the link's href matches the current path or if it's the homepage
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
     });
   </script>
 </body>

@@ -25,19 +25,24 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .active {
+      color: #6c63ff; /* Or any other style you prefer for the active link */
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
   <header class="bg-black py-6">
     <div class="container mx-auto flex justify-between items-center px-8">
-      <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+      <a href="/" class="text-2xl font-bold text-white flex items-center">
         <img src="images/logo.svg" alt="BlockForge Logo" class="h-12 mr-3">
         BlockForge
       </a>
       <nav>
         <ul class="flex space-x-8">
-          <li><a href="index.html" class="text-white hover:text-blue-300">Home</a></li>
-          <li><a href="smart-contract-platform.html" class="text-white hover:text-blue-300">Smart Contract Platform</a></li>
+          <li><a href="/#namegenai" class="nav-link text-white hover:text-blue-300">NameGenAI</a></li>
+          <li><a href="/#smart-contract-platform" class="nav-link text-white hover:text-blue-300">Smart Contract Platform</a></li>
+          <li><a href="newsletter.html" class="nav-link text-white hover:text-blue-300 active">Newsletter</a></li>
+          <li><a href="about.html" class="nav-link text-white hover:text-blue-300">About</a></li>
         </ul>
       </nav>
     </div>
@@ -45,42 +50,41 @@
 
   <main>
     <section class="bg-gradient py-32 relative overflow-hidden">
-      <div class="absolute inset-0 bg-black opacity-20"></div>
       <div class="container mx-auto px-8 max-w-2xl relative z-10">
         <h1 class="text-4xl font-bold mb-6 text-center animate-float">Join the BlockForge Waitlist</h1>
         <p class="text-xl mb-12 text-center dynamic-text">Be the first to experience our AI-powered Smart Contract Platform</p>
         
-        <form id="waitlist-form" class="bg-white/10 p-8 rounded-lg" onsubmit="submitForm(event)">
+        <form id="waitlist-form" class="bg-gray-800 p-8 rounded-lg shadow-lg" onsubmit="submitForm(event)">
           <div class="mb-6">
-            <label for="name" class="block mb-2 text-sm font-medium">Full Name</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Full Name</label>
             <input 
               type="text" 
               id="name" 
               name="name" 
               required 
               placeholder="Enter your full name" 
-              class="w-full px-4 py-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-3 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-600"
             >
           </div>
 
           <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium">Email Address</label>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Email Address</label>
             <input 
               type="email" 
               id="email" 
               name="email" 
               required 
               placeholder="Enter your email" 
-              class="w-full px-4 py-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-3 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-600"
             >
           </div>
 
           <div class="mb-6">
-            <label for="role" class="block mb-2 text-sm font-medium">Role</label>
+            <label for="role" class="block mb-2 text-sm font-medium text-gray-300">Role</label>
             <select 
               id="role" 
               name="role" 
-              class="w-full px-4 py-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-3 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-600"
             >
               <option value="">Select your role</option>
               <option value="developer">Developer</option>
@@ -92,12 +96,12 @@
           </div>
 
           <div class="mb-6">
-            <label class="flex items-center">
+            <label class="flex items-center text-gray-300">
               <input 
                 type="checkbox" 
                 name="updates" 
                 checked 
-                class="mr-2 bg-gray-800 text-blue-500 focus:ring-blue-500"
+                class="mr-2 bg-gray-700 text-blue-500 focus:ring-blue-500 border border-gray-600"
               >
               <span>I want to receive updates and early access information</span>
             </label>
@@ -117,11 +121,36 @@
   </main>
 
   <footer class="bg-black py-12">
-    <div class="container mx-auto px-8 text-center">
-      <p>&copy; 2024 BlockForge Technologies. All rights reserved.</p>
-      <div class="mt-4 space-x-4">
-        <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
-        <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+    <div class="container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">BlockForge</h3>
+          <p>Pioneering the future of blockchain and AI technology.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Products</h3>
+          <ul class="space-y-2">
+            <li><a href="/#namegenai" class="hover:text-blue-300">NameGenAI</a></li>
+            <li><a href="/#smart-contract-platform" class="hover:text-blue-300">Smart Contract Platform</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Connect</h3>
+          <ul class="space-y-2">
+            <li><a href="https://twitter.com/blockforge_tech" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">BlockForge Twitter</a></li>
+            <li><a href="https://t.me/BlockForge" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">Telegram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="privacy.html" class="hover:text-blue-300">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-blue-300">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-center">© 2025 BlockForge Technologies. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -170,14 +199,30 @@
     function showError(message) {
       const formMessage = document.getElementById('form-message');
       formMessage.innerHTML = message;
-      formMessage.className += ' text-red-400';
+      formMessage.className += ' text-red-500';
     }
 
     function showSuccess(message) {
       const formMessage = document.getElementById('form-message');
       formMessage.innerHTML = message;
-      formMessage.className += ' text-green-400';
+      formMessage.className += ' text-green-500';
     }
+
+    // Dynamic navigation highlighting
+    window.addEventListener('load', () => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname;
+
+        navLinks.forEach(link => {
+            // Remove active class from all links
+            link.classList.remove('active');
+
+            // Check if the link's href matches the current path or if it's the homepage
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    });
   </script>
 </body>
 </html>
